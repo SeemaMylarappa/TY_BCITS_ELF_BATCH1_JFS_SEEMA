@@ -1,0 +1,723 @@
+USE BCITS;
+Database changed
+mysql> SELECT *
+    -> FROM STUDENT_INFO;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> UPDATE STUDENT_INFO
+    -> SET NAME='SHARAVANI';
+Query OK, 5 rows affected (0.07 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> DELETE FROM STUDENT_INFO
+    -> WHERE NAME='MANOJ';
+Query OK, 0 rows affected (0.06 sec)
+INSERT INTO STUDENT_INFO VALUES(02,'SAHANA',587439512,78,'SAHANA@GMAIL.COM'),(03,'VENKATESH',547821395,87.90,VENKATESH@GMAIL.COM'),(04,'VINAY',142536951,89.23,'VINAY@GMAIL.COM');
+    '> INSERT INTO STUDENT_INFO VALUES(02,'SAHANA',587439512,78,'SAHANA@GMAIL.COM'),(03,'VENKATESH',547821395,87.90,VENKATE^C@GMAIL.COM'),(04,'VINAY',142536951,89.23,'VINAY@GMAIL.COM');
+mysql> INSERT INTO STUDENT_INFO VALUES(02,'SAHANA',587439512,78,'SAHANA@GMAIL.COM'),(03,'VENKATESH',547821395,98,'VENKATESH@GMAIL.COM'),(04,'VINAY',142536951,89,'VINAY@GMAIL.COM');
+Query OK, 3 rows affected (0.07 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> DESC STUDENT_INFO;
+
+mysql> SELECT *
+    -> FROM STUDENT_INFO;
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+DELETE COMMAND
+
+ DELETE FROM STUDENT_INFO
+    -> WHERE NAME='SEEMA';
+Query OK, 1 row affected (0.33 sec)
+
+mysql> SELECT *
+    -> FROM STUDENT_INFO;
+
+----------------------------------------------------------------------------------------------------------------------------------
+ADDING ONE COLUMN
+ 
+ ALTER TABLE STUDENT_INFO
+    -> ADD COLUMN ID INT;
+SELECT *
+    -> FROM STUDENT_INFO;
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+DROPING ONE COLUMN
+
+ ALTER TABLE STUDENT_INFO
+    -> DROP COLUMN ID;
+Query OK, 0 rows affected (0.58 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM STUDENT_INFO;
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+CREATING DATABASE
+
+ CREATE DATABASE TY;
+Query OK, 1 row affected (0.09 sec)
+
+mysql> SHOW DATABASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATABASE' at line 1
+mysql> SHOW DATABASES;
+
+
+mysql> DROP DATABASE TY;
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> SHOW DATABASES;
+----------------------------------------------------------------------------------------------------------------------
+TRUNCATE COMMAND
+
+ TRUNCATE TABLE STUDENT_INFO;
+Query OK, 0 rows affected (0.20 sec)
+ SELECT *
+    -> FROM STUDENT_INFO;
+Empty set (0.00 sec)
+-----------------------------------------------------------------------------------------------------------------------
+RENAME COMMAND
+
+ RENAME TABLE STUDENT_INFO TO STUDENT;
+Query OK, 0 rows affected (0.42 sec)
+  SHOW DATABASES;
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+TABLE CREATION
+
+ CREATE TABLE STUD(SID INT(10) PRIMARY KEY,
+    -> NAME VARCHAR(10) NOT NULL,
+    -> MOBILENO INT(10),MARKS DOUBLE);
+Query OK, 0 rows affected (0.28 sec)
+ DESC STUD;
+
+
+mysql>  INSERT INTO STUD VALUES(02,'SAHANA',587439512,56),(03,'VENKATESH',547821395,45),(04,'VINAY',142536951,23),(05,'MANJULA',4589753,89);
+Query OK, 4 rows affected (0.08 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM STUD;
+
+
+ SELECT *
+    -> FROM STUD;
+
+
+---------------------------------------------------------------------------------------------------------------------------
+CHANGE COMMAND
+
+mysql> ALTER TABLE STUD
+    -> CHANGE NAME STUDNAME VARCHAR(100);
+Query OK, 0 rows affected (0.66 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM STUD;
+
+-------------------------------------------------------------------------------------------------------------------------------
+ARTHEMATIC OPERATION
+
+ SELECT 5+2
+    -> FROM DUAL;
++-----+
+| 5+2 |
++-----+
+|   7 |
++-----+
+1 row in set (0.06 sec)
+
+mysql> SELECT 5*2
+    -> FROM DUAL;
++-----+
+| 5*2 |
++-----+
+|  10 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> SELECT 10/5
+    -> FROM DUAL;
++--------+
+| 10/5   |
++--------+
+| 2.0000 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 70%10
+    -> FROM DUAL;
++-------+
+| 70%10 |
++-------+
+|     0 |
++-------+
+1 row in set (0.00 sec)
+-----------------------------------------------------------------------------------------------------------------------------------
+RELATIONAL OPERATORS
+
+SELECT *
+    -> FROM STUD
+    -> WHERE SID<10;
+
+
+mysql> SELECT *
+    -> FROM STUD
+    -> WHERE SID>=10;
+Empty set (0.05 sec)
+-------------------------------------------------------------------------------------------------------------------------------
+SELECTION
+
+ SELECT STUDNAME
+    -> FROM STUD;
++-----------+
+| STUDNAME  |
++-----------+
+| SAHANA    |
+| VENKATESH |
+| VINAY     |
+| MANJULA   |
++-----------+
+4 rows in set (0.00 sec)       
+--------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO STUD VALUES(06,'SAHANA',74158745,87);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> SELECT *
+    -> FROM STUD;
+
+---------------------------------------------------------------------------------------------------------------------
+DISTINCT
+
+ SELECT DISTINCT STUDNAME
+    -> FROM STUD;
+
+4 rows in set (0.00 sec)
+SELECT DISTINCT STUDNAME,MARKS
+    -> FROM STUD;
+
+
+ SELECT DISTINCT STUDNAME,MARKS
+    -> FROM STUD;
+
+
+mysql> SELECT DISTINCT STUDNAME
+    -> FROM STUD;
+
+-------------------------------------------------------------------------------------
+ALIAS
+
+SELECT SID STUDID
+    -> FROM STUD;
+
+
+
+mysql>
+mysql> SELECT SID AS STUDID,STUDNAME AS NAME
+    -> FROM STUD;
+
+-----------------------------------------------------------------------------------------
+ EXPRESSION
+      
+ SELECT MARKS+100
+    -> FROM STUD;
+
+--------------------------------------------------------------------------------------------------
+OR OPERATOR
+
+ SELECT *
+    -> FROM STUDENT_INFO
+    -> WHERE NAME='SEEMA' OR NAME='SAHANA';
+
+-------------------------------------------------------------------------------------------------------------------------------
+AND OPERATOR
+
+
+mysql> SELECT *
+    -> FROM STUDENT_INFO
+    -> WHERE NAME='SEEMA' AND NAME='SAHANA';
+Empty set (0.00 sec)
+--------------------------------------------------------------------------------------------------------------------------------
+IN OPERATOR
+
+mysql> SELECT *
+    -> FROM STUDENT_INFO
+    -> WHERE NAME IN('SEEMA','SAHANA');
+
+-----------------------------------------------------------------------------------------------------------------------------------
+ SELECT *
+    -> FROM STUD
+    -> WHERE NOT SID=01;
+
+-------------------------------------------------------------------------------------------------------------------------------------
+ CREATE TABLE EMPLOYEE_INFO(EID INT PRIMARY KEY,
+    -> ENAME VARCHAR(150),
+    -> MOBILENO BIGINT NOT NULL,
+    -> EMAILID VARCHAR(150),
+    -> DOB DATE,
+    -> DESIGNATION VARCHAR(150),
+    -> SAL DOUBLE,
+    -> DEPTID INT,
+    -> DOJOIN DATE,
+    -> BLOODGRP VARCHAR(10),
+    -> GENDER VARCHAR(40));
+Query OK, 0 rows affected (0.22 sec)
+
+ INSERT INTO EMPLOYEE_INFO VALUES(20,'VENKATESH',7795403409,'venkatesh23@gmail.com','1997-11-07','MANAGER',25000.0,12,'2018-03-08','B+','MALE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(30,'SAHANA',9852467591,'sahana24@gmail.com','1998-10-17','MANAGER',54000.0,13,'2018-06-08','A+','FEMALE');
+Query OK, 1 row affected (0.34 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(40,'MAHESH',9574826347,'mahesh12@gmail.com','1994-07-15','MANAGER',12000.0,14,'2014-06-06','O+',MALE');
+    '> ^C
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(40,'MAHESH',9574826347,'mahesh12@gmail.com','1994-07-15','MANAGER',12000.0,14,'2014-06-06','O+',MALE');
+    '> INSERT INTO EMPLOYEE_INFO VALUES(40,'MAHESH',9574826347,'mahesh12@gmail.com','1994-07-15','MANAGER',12000.0,14,'2014-06-06','O+',MALE');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '');
+INSERT INTO EMPLOYEE_INFO VALUES(40,'MAHESH',9574826347,'mahesh12@gmail.com'' at line 1
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(40,'MAHESH',9574826347,'mahesh12@gmail.com','1994-07-15','MANAGER',12000.0,14,'2014-06-06','O+','MALE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(50,'SUHANA',9574815727,'suhana@gmail.com','1991-05-13','CLERK',5000.0,15,'2019-06-05','O-','FEMALE');
+Query OK, 1 row affected (0.33 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(60,'MANOJ',7584632158,'manoj@gmail.com','1996-06-18','ANALYST',45000.0,16,'2020-07-07','AB+','MALE');
+Query OK, 1 row affected (0.33 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(70,'MEGHANA',9526487512,'meghana@gmail.com','1994-04-15','TESTER',15000.0,17,'2018-04-09','A-','FEMALE');
+Query OK, 1 row affected (0.33 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(80,'SWAROOP',7215489635,'swaroop@gmail.com','1991-07-12','HR',75000.0,18,'2017-03-19','B-','MALE');
+Query OK, 1 row affected (0.34 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(90,'THUSHAR',9852631532,'thushar@gmail.com','1997-09-14','DEVELOPER',45000.0,19,'2019-04-13','AB-','MALE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(100,'ROJA',9852163547,'roja@gmail.com','1996-10-16','ANALYST',55000.0,20,'2018-05-11','AB+','FEMALE');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYYE_INFO;
+ERROR 1146 (42S02): Table 'bcits.employye_info' doesn't exist
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
+
+
+mysql> UPDATE DEPTID
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM EMPLOYEE_INFO
+WHERE DEPTID' at line 2
+mysql> UPDATE DEPTID=10
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID=11;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10
+FROM EMPLOYEE_INFO
+WHERE DEPTID=11' at line 1
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=10
+    -> WHERE DEPTID=11;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=20
+    -> WHERE DEPTID=12;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> WHERE DEPTID=13
+    -> UPDATE EMPLOYEE_INFO;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE DEPTID=13
+UPDATE EMPLOYEE_INFO' at line 2
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=30
+    -> WHERE DEPTID=14;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> WHERE DEPTID=15
+    -> WHERE DEPTID=14;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE DEPTID=15
+WHERE DEPTID=14' at line 2
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=10
+    -> WHERE DEPTID=15;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=20
+    -> WHERE DEPTID=16;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=30
+    -> WHERE DEPTID=17;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=10
+    -> WHERE DEPTID=18;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> WHERE DEPTID=20;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE DEPTID=20' at line 2
+mysql> UPDATE EMPLOYEE_INFO
+    -> WHERE DEPTID=20;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE DEPTID=20' at line 2
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=10
+    -> WHERE DEPTID=19;
+Query OK, 1 row affected (0.34 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=20
+    -> WHERE DEPTID=20;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 3  Changed: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
+
+ UPDATE EMPLOYEE_INFO
+    -> SET DEPTID=20
+    -> WHERE DEPTID=13;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
+
+
+ UPDATE EMPLOYEE_INFO
+    -> SET DESIGNATION='TESTER'
+    -> WHERE EID=20;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+-----------+------------+-----------------------+------------+-------------+-------+--------+------------+----------+--------+
+| EID | ENAME     | MOBILENO   | EMAILID               | DOB        | DESIGNATION | SAL   | DEPTID | DOJOIN     | BLOODGRP | GENDER |
++-----+-----------+------------+-----------------------+------------+-------------+-------+--------+------------+----------+--------+
+|  10 | SEEMA     | 9875462587 | seemamdvg@gmail.com   | 1997-12-11 | DEVELOPER   | 30000 |     10 | 2019-01-05 | AB+      | FEMALE |
+|  20 | VENKATESH | 7795403409 | venkatesh23@gmail.com | 1997-11-07 | TESTER      | 25000 |     20 | 2018-03-08 | B+       | MALE   |
+|  30 | SAHANA    | 9852467591 | sahana24@gmail.com    | 1998-10-17 | MANAGER     | 54000 |     20 | 2018-06-08 | A+       | FEMALE |
+|  40 | MAHESH    | 9574826347 | mahesh12@gmail.com    | 1994-07-15 | MANAGER     | 12000 |     30 | 2014-06-06 | O+       | MALE   |
+|  50 | SUHANA    | 9574815727 | suhana@gmail.com      | 1991-05-13 | CLERK       |  5000 |     10 | 2019-06-05 | O-       | FEMALE |
+|  60 | MANOJ     | 7584632158 | manoj@gmail.com       | 1996-06-18 | ANALYST     | 45000 |     20 | 2020-07-07 | AB+      | MALE   |
+|  70 | MEGHANA   | 9526487512 | meghana@gmail.com     | 1994-04-15 | TESTER      | 15000 |     30 | 2018-04-09 | A-       | FEMALE |
+|  80 | SWAROOP   | 7215489635 | swaroop@gmail.com     | 1991-07-12 | HR          | 75000 |     10 | 2017-03-19 | B-       | MALE   |
+|  90 | THUSHAR   | 9852631532 | thushar@gmail.com     | 1997-09-14 | DEVELOPER   | 45000 |     10 | 2019-04-13 | AB-      | MALE   |
+| 100 | ROJA      | 9852163547 | roja@gmail.com        | 1996-10-16 | ANALYST     | 55000 |     20 | 2018-05-11 | AB+      | FEMALE |
++-----+-----------+------------+-----------------------+------------+-------------+-------+--------+------------+----------+--------+
+10 rows in set (0.00 sec)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                         QUERIES
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 1]WAQ TO DISPLAY ALL THE RECORD WHO IS WORKING AS SOFTWARE DEVELOPER
+
+SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION='DEVELOPER';
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  2]WAQ TO DISPLAY NAME,PHONENO WHOSE SAL IS MORE THAN 15000
+
+mysql> SELECT ENAME,MOBILENO
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SAL>15000;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 3]WAQ TO FIND THE UNIQUE DEPTID FROM EMPLOYEE TABLE
+
+ SELECT DISTINCT DEPTID
+    -> FROM EMPLOYEE_INFO;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 4]WAQ TO DISPLAY UNIQUE DEPTID AS WELL AS JOB DESIGNATION
+
+ SELECT DISTINCT DEPTID,DESIGNATION
+    -> FROM EMPLOYEE_INFO;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 5]WAQ TO DISPLAY ALL THE EMPLOYEE DETAIL WHOSE SAL IS LESS THAN EQUAL TO 25000
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SAL<=25000;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 6]WAQ TO DISPLAY ALL THE RECORDS OF THE EMLOYEE EXCEPT WHO IS WORKING AS TESTER
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION<>'TESTER';
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   7]WAQ TO DISPLAY INCREMENTED SAL BY 5000
+
+ SELECT SAL+5000 INCREMENT_SAL_
+    -> FROM EMPLOYEE_INFO;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  8]WAQ TO DISPLAY THE ANNUAL SALARY
+
+mysql> SELECT SAL*12 ANNUAL_SAL
+    -> FROM EMPLOYEE_INFO;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 9]WAQ TO DISPLAY ALL THE RECORD OF A EMPLOYEE WHO IS WORKING AS SOFTWARE DEVELOPER IN DEPTNO 10
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION='DEVELOPER' AND DEPTID=10;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  10]WAQ TO DISPLAY WHOSE JOB DESIGNATION IS TESTER AND HIRED AFTER 2015
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION='TESTER' AND DOJOIN>'2015-12-31';
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 11]WAQ TO DISPLAY ALL THE RECORD OF THE EMPLOYEE WHO IS WORKING IN DEPTNO 20 OR WHOSE JOB DESIG IS HR
+
+SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID=20 OR DESIGNATION='HR';
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 12]WAQ TO DISPLAY ALL THE EMPLOYEE RECORDS WHOSE DOB<1995 AND BLOODGRP CAN BE O+
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DOB<'1995-01-01' OR BLOODGRP='O+';
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  13]WAQ TO DISPLAY NAME,EMAILID WHO IS WORKING AS A TESTER OR ANALYST OR DEVELOPER
+
+ SELECT ENAME,EMAILID
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION='TESTER' OR DESIGNATION='ANALYST' OR DESIGNATION='DEVELOPER';
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  14]WAQ TO DISPLAY ALL THE RECORD EXCEPT ANALYST
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NOT DESIGNATION='ANALYST';
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 15]WAQ TO DISPLAY ALL THE RECORD OF A EMPLOYEE WHO ARE NOT WORKING IN DEPTNO 10,20,30
+
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NOT DEPTID=10 AND NOT  DEPTID=20;
+
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NOT (DEPTID=10 OR DEPTID=20);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+16]WAQ TO DISPLAY ALL THE EMPLOYEE EXCLUDING TESTER WHO IS WORKING IN DEPTNO 40
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION!='TESTER' AND DEPTID=40;
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NOT ( DESIGNATION='TESTER' AND DEPTID=40);
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NOT ( DESIGNATION='TESTER' OR DEPTID=40);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ INSERT INTO EMPLOYEE_INFO(EID,ENAME,MOBILENO,SAL) VALUES(111,'RAHUL',1478526936,00000);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 17]WAQ TO DISPLAY ALL THE DETAILS OF A EMPLOYEE WHO IS WORKING IN DEPTID 10,20,30
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID IN(10,20,30);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 18]WAQ TO DISPLAY ALL THE DETAIL OF A EMPLOYEE WHO ARE WORKING AS CLERK OR SALES OR DEVELOPER,TESTER
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION IN('DEVELOPER','TESTER','CLERK','SALES');
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 19]WAQ TO DISPLAY THE DETAIL OF SALES,HR,DEVELOPER WHO IS WORKING IN DEPTID 10,30 OR 40 AND SAL>15000
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION IN('DEVELOPER','HR','SALES','TESTER')
+    -> AND DEPTID IN(10,30,40) AND SAL>15000;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+20]WAQ TO DISPLAY ALL THE RECORD OF A EMPLOYEE WHO IS WORKING AS HR OR TESTER
+
+SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION NOT IN('HR','TESTER');
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+21]WAQ TO DISPLAY ALL THE DTAILS WHO ARE WORKING IN DEPTNO 20,30 EXCLUDING WHOSE DESG IS ANALYST,HR,TESTER
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID NOT IN(20,30) AND DESIGNATION NOT IN('TESTER','HR','ANALYST');
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+22]WAQ TO DISPLAY ALL RECORDS WHO SAL RANGE IS 20000 TO 25000
+
+SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SAL BETWEEN 20000 AND 25000;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+23]WAQ TO DISPLAY THE NAME OF A AGE,NAME WHO AGE IS 20 TO 30
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE AGE BETWEEN 20 AND 30;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+24]WAQ TO DISPLAY THE DATE OF JOIN IS 2015 
+
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DOJOIN BETWEEN '01-01-2015' AND '31-12-2015';
+Empty set, 2 warnings (0.00 sec)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ALTER TABLE EMPLOYEE_INFO
+    -> ADD COLUMN AGE INT;
+Query OK, 0 rows affected (0.66 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
+
+
+ UPDATE EMPLOYEE_INFO
+    -> SET AGE =23
+    -> WHERE EID IN(10,20,30,40,51);
+Query OK, 4 rows affected (0.06 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=21
+    -> WHERE EID IN(50,60,70,80);
+Query OK, 4 rows affected (0.33 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=25
+    -> WHERE EID IN(90,100,111);
+Query OK, 3 rows affected (0.08 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+25]WAQ  TO DISPLAY ALL RECORDS EXCLUDING WHOSE SAL 50000 TO 70000
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SAL NOT BETWEEN 50000 AND 70000;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+26]WAQ TO DISPLAY EMAILID IS NULL
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE EMAILID IS NULL;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+27]WAQ TO DISPLAY ALL RECORDS EXCEPT DEPTID IS NULL
+
+SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE EMAILID IS NULL;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+28]WAQ TO DISPLAY ALL RECORDS WHOSE NAME START WITH S
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE ENAME LIKE 'S%';
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+29]WAQ TO DISPLAY NAME,EMAIL WHOSE NAMES FIRST LETTER IS A AND LAST LETTER IS Z
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE ENAME LIKE 'A%Z';
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+30]WAQ TO DISPLAY ALL RECORDS WHOSE HAVING ATLEAST ONE L
+
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE ENAME LIKE '%L%';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+31]WAQ TO DISPLAY ALL RECORS WHOSE SECOND LETTER SHOULD BE P 
+
+SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE ENAME LIKE '_P%';
+Empty set (0.00 sec)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+32]WAQ TO DISPLAY ALL RECORDS WHO IS HAVING ATLEAST 4 CHARACTERS
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE ENAME LIKE '____';
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+33]WAQ TO DISPLAY RECORDS WHOSE EMAILID CONTAINING COM
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE EMAILID LIKE '%com%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
