@@ -1,0 +1,141 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                      FUNCTIONS
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+              SINGLE ROW FUNCTIONS
+
+1]UPPER 
+ SELECT UPPER(ENAME)
+    -> FROM EMPLOYEE_INFO;
+
+2]LOWER 
+mysql> SELECT LOWER(ENAME)
+    -> FROM EMPLOYEE_INFO;
+
+
+3]LENGTH
+mysql> SELECT LENGTH(ENAME)
+    -> FROM EMPLOYEE_INFO
+    -> WHERE ENAME='SEEMA';
+
+4]REVERSE
+mysql> SELECT REVERSE(ENAME)
+    -> FROM EMPLOYEE_INFO
+    -> WHERE ENAME='SAHANA';
+
+5]CONCAT
+mysql> SELECT CONCAT(ENAME,EID)
+    -> FROM EMPLOYEE_INFO;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            MULTI-ROW FUNCTIONS
+
+1]AVERAGE
+mysql> SELECT AVG(SAL)
+    -> FROM EMPLOYEE_INFO;
+
+2]COUNT
+mysql> SELECT COUNT(ENAME)
+    -> FROM EMPLOYEE_INFO;
+
+
+
+3]MAX
+mysql> SELECT MAX(SAL)
+    -> FROM EMPLOYEE_INFO;
+
+
+4]MIN
+mysql> SELECT MIN(SAL)
+    -> FROM EMPLOYEE_INFO;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+WAQ TO DISPLAY ALL SALARY IN ASCENDING ORDER
+
+SELECT SAL
+    -> FROM EMPLOYEE_INFO
+    -> ORDER BY SAL;
+
+ SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SAL>1500
+    -> GROUP BY SAL
+    -> ORDER BY DOB;
+
+ SELECT COUNT(LOCATION)
+    -> FROM DEPT
+    -> GROUP BY LOCATION;
+
+
+SELECT MAX(SAL),SAL
+    -> FROM EMPLOYEE_INFO
+    -> GROUP BY SAL
+    -> HAVING MAX(SAL)>4000;
+
+
+ SELECT COUNT(ENAME),ENAME
+    -> FROM EMPLOYEE_INFO
+    -> ORDER BY ENAME;
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ROLLBACK AND COMMIT
+
+ INSERT INTO EMPLOYEE_INFO VALUES(120,'MANTESH',9536874591,'vinay@gmail.com','1998-06-03','ANALYST',45000,40,'2018-02-14','AB+','MALE',24);
+Query OK, 1 row affected (0.30 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
+ROLLBACK;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> SET AUTOCOMMIT=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
+
+ INSERT INTO DEPT VALUES(50,'SALES AND OPERATION','MANGALORE');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> SELECT *
+    -> FROM DEPT;
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                        JOINS
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CROSS/CARTESIAN JOIN
+
+SELECT *
+FROM EMPLOYEE_INFO CROSS JOIN DEPT
+
+INNER JOIN
+
+SELECT EMPLOYEE_INFO.DEPTID,EMPLOYEE_INFO.ENAME,DEPT.DEPTNAME,DEPT.DEPTID
+FROM EMPLOYEE_INFO INNER JOIN DEPT
+ON  employee_info.DEPTID=dept.DEPTID
+
+NATURAL JOIN
+
+SELECT *
+FROM employee_info NATURAL JOIN dept
+
+OUTER JOIN
+
+1]LEFT OUTER JOIN
+
+SELECT *
+FROM employee_info LEFT OUTER JOIN dept
+ON employee_info.DEPTID=dept.DEPTID
+
+2]RIGHT OUTER JOIN
+
+SELECT *
+FROM employee_info RIGHT OUTER JOIN dept
+ON employee_info.DEPTID=dept.DEPTID
+
