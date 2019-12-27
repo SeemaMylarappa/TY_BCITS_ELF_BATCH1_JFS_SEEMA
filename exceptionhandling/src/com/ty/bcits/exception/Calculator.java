@@ -1,0 +1,15 @@
+package com.ty.bcits.exception;
+
+public class Calculator {
+ void add(int a,int b) {
+	 System.out.println(a+b);
+ }
+ void divison(int a,int b) {
+	 try {
+	 System.out.println(a/b);
+	 }catch(Exception e){
+		 System.out.println("math error");
+	 }
+ }
+ 
+}
