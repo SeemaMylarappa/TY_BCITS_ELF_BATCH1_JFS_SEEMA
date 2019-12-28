@@ -1,0 +1,198 @@
+ use BCITS
+Database changed
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bcits              |
+| mysql              |
+| performance_schema |
+| sys                |
+| ty                 |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE EMPLOYEE_PRIMARY_INFO(EMPID INT PRIMARY KEY,
+    -> NAME VARCHAR,
+    -> MOBILENO LONG,
+    -> OFFICIALMAILID ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+MOBILENO LONG,
+OFFICIALMAILID' at line 2
+mysql> CREATE DATABASE EMPLOYEE_MANAGEMENT_INFO;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> SHOW DATABASES;
++--------------------------+
+| Database                 |
++--------------------------+
+| information_schema       |
+| bcits                    |
+| employee_management_info |
+| mysql                    |
+| performance_schema       |
+| sys                      |
+| ty                       |
++--------------------------+
+7 rows in set (0.00 sec)mysql> SHOW DATABASES;
++--------------------------+
+| Database                 |
++--------------------------+
+| information_schema       |
+| bcits                    |
+| employee_management_info |
+| mysql                    |
+| performance_schema       |
+| sys                      |
+| ty                       |
++--------------------------+
+7 rows in set (0.00 sec)
+
+mysql> USE EMPLOYEE_MANAGEMENT_INFO;
+Database changed
+mysql> CREATE TABLE EMPLOYEE_PRIMARY_INFO(EMP_ID INT PRIMARY KEY,
+    -> E_NAME VARCHAR(150),
+    -> MOBILE_NO LONG,
+    -> OFFICIAL_MAILID VARCHAR(200),
+    -> DATE_OF_BIRTH DATE,
+    -> DATE_OF_JOIN DATE,DESIGNATION VARCHAR(200),
+    -> BLOOD_GRP VARCHAR(200),
+    -> SALARY DOUBLE,
+    -> DEPT_ID INT,MANAGER_ID INT);
+Query OK, 0 rows affected (0.63 sec)
+
+mysql> DESC EMPLOYEE_PRIMARY_INFO;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| EMP_ID          | int(11)      | NO   | PRI | NULL    |       |
+| E_NAME          | varchar(150) | YES  |     | NULL    |       |
+| MOBILE_NO       | mediumtext   | YES  |     | NULL    |       |
+| OFFICIAL_MAILID | varchar(200) | YES  |     | NULL    |       |
+| DATE_OF_BIRTH   | date         | YES  |     | NULL    |       |
+| DATE_OF_JOIN    | date         | YES  |     | NULL    |       |
+| DESIGNATION     | varchar(200) | YES  |     | NULL    |       |
+| BLOOD_GRP       | varchar(200) | YES  |     | NULL    |       |
+| SALARY          | double       | YES  |     | NULL    |       |
+| DEPT_ID         | int(11)      | YES  |     | NULL    |       |
+| MANAGER_ID      | int(11)      | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)mysql> INSERT INTO EMPLOYEE_PRIMARY_INFO VALUES(10,'SEEMA',9687412354,'seemamdvg@gmail.com','1997-12-11','2020-02-01','DEVELOPER','AB+',30000,10,100);
+Query OK, 1 row affected (0.34 sec)
+
+mysql> INSERT INTO EMPLOYEE_PRIMARY_INFO VALUES(20,'SAHANA',9658741532,'sahana@gmail.com','1996-11-03','2022-04-06','TESTER','AB-',25000,20,101),(30,'VENKATESH',9966332254,'venkatesh23@gmail.com',
+    -> '1996-11-07','2019-08-17','MANAGER','O-',32000,20,101),(30,'SACHIN',9988774425,'sachin@gmail.com','2001-05-30','2025-04-06','HR','A+',43000,30,102),(40,'PREETHI',9955112234,
+    -> 'preethi@gmail.com','1995-03-17','2018-06-01','CLERK','O+',10000,40,103);
+ERROR 1062 (23000): Duplicate entry '30' for key 'PRIMARY'
+mysql> INSERT INTO EMPLOYEE_PRIMARY_INFO VALUES(20,'SAHANA',9658741532,'sahana@gmail.com','1996-11-03','2022-04-06','TESTER','AB-',25000,20,101),(30,'VENKATESH',9966332254,'venkatesh23@gmail.com',
+    -> '1996-11-07','2019-08=17','MANAGER','O-',32000,20,101);
+Query OK, 2 rows affected (0.13 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO EMPLOYEE_PRIMARY_INFO VALUES(40,'SACHIN',9658741523,'sachin@gmail.com','2001-05-30','2025-05-30','HR','A+',43000,40,102),(50,'PREETHI',9966332245,'preethi@gmail.com',
+    -> '1995-03-17','2018-06-01','CLERK','B+',10000,50,104),(60,'LAVANYA',9955227745,'lavanya@gmail.com','1994-09-08','2017-04-02','DEVELOPER','AB+',28000,10,106),(70,'SHUBHAM',9966332251,
+    -> 'shubham@gmail.com','2001-03-09','2020-09-04','HR','A-',30,106);
+ERROR 1136 (21S01): Column count doesn't match value count at row 4
+mysql> INSERT INTO EMPLOYEE_PRIMARY_INFO VALUES(40,'SACHIN',9658741523,'sachin@gmail.com','2001-05-30','2025-05-30','HR','A+',43000,40,102),(50,'PREETHI',9966332245,'preethi@gmail.com',
+    -> '1995-03-17','2018-06-01','CLERK','B+',10000,50,104),(60,'LAVANYA',9955227745,'lavanya@gmail.com','1994-09-08','2017-04-02','DEVELOPER','AB+',28000,10,106),(70,'SHUBHAM',9966332251,
+    -> 'shubham@gmail.com','2001-03-09','2020-09-04','HR','A-',54000,30,106),(80,'MEGHANA',9988552146,'meghana@gmail.com','2000-05-19','2022-01-05','TESTER','AB+',34000,10,107);
+Query OK, 5 rows affected (0.34 sec)
+Records: 5  Duplicates: 0  Warnings: 0 INSERT INTO EMPLOYEE_PRIMARY_INFO VALUES(90,'PRASAD',9955446622,'prasad@gmail.com','1994-02-04','2017-05-03','DEVELOPER','AB-',52000,20,108);
+Query OK, 1 row affected (0.33 sec)
+
+mysql> INSERT INTO EMPLOYEE_PRIMARY_INFO VALUES(100,'YAMUNA',9955446624,'yamuna@gmail.com','1994-09-04','2017-06-03','ANALYST','A-',23000,30,109);
+Query OK, 1 row affected (0.33 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_PRIMARY_INFO;
++--------+-----------+------------+-----------------------+---------------+--------------+-------------+-----------+--------+---------+------------+
+| EMP_ID | E_NAME    | MOBILE_NO  | OFFICIAL_MAILID       | DATE_OF_BIRTH | DATE_OF_JOIN | DESIGNATION | BLOOD_GRP | SALARY | DEPT_ID | MANAGER_ID |
++--------+-----------+------------+-----------------------+---------------+--------------+-------------+-----------+--------+---------+------------+
+|     10 | SEEMA     | 9687412354 | seemamdvg@gmail.com   | 1997-12-11    | 2020-02-01   | DEVELOPER   | AB+       |  30000 |      10 |        100 |
+|     20 | SAHANA    | 9658741532 | sahana@gmail.com      | 1996-11-03    | 2022-04-06   | TESTER      | AB-       |  25000 |      20 |        101 |
+|     30 | VENKATESH | 9966332254 | venkatesh23@gmail.com | 1996-11-07    | 2019-08-17   | MANAGER     | O-        |  32000 |      20 |        101 |
+|     40 | SACHIN    | 9658741523 | sachin@gmail.com      | 2001-05-30    | 2025-05-30   | HR          | A+        |  43000 |      40 |        102 |
+|     50 | PREETHI   | 9966332245 | preethi@gmail.com     | 1995-03-17    | 2018-06-01   | CLERK       | B+        |  10000 |      50 |        104 |
+|     60 | LAVANYA   | 9955227745 | lavanya@gmail.com     | 1994-09-08    | 2017-04-02   | DEVELOPER   | AB+       |  28000 |      10 |        106 |
+|     70 | SHUBHAM   | 9966332251 | shubham@gmail.com     | 2001-03-09    | 2020-09-04   | HR          | A-        |  54000 |      30 |        106 |
+|     80 | MEGHANA   | 9988552146 | meghana@gmail.com     | 2000-05-19    | 2022-01-05   | TESTER      | AB+       |  34000 |      10 |        107 |
+|     90 | PRASAD    | 9955446622 | prasad@gmail.com      | 1994-02-04    | 2017-05-03   | DEVELOPER   | AB-       |  52000 |      20 |        108 |
+|    100 | YAMUNA    | 9955446624 | yamuna@gmail.com      | 1994-09-04    | 2017-06-03   | ANALYST     | A-        |  23000 |      30 |        109 |
++--------+-----------+------------+-----------------------+---------------+--------------+-------------+-----------+--------+---------+------------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE  EMPLOYEE_SECONDARY_INFO(EMP_ID INT PRIMARY KEY,
+    -> PERSONAL_MAILID VARCHAR(200),GENDER VARCHAR(150),GOVT_ID VARCHAR(200),AGE INT,NATIONALITY VARCHAR(150),MARITAL_STATUS VARCHAR(150),GUARDIAN_NAME VARCHAR(200),GUARDIAN_CONTACT LONG,JOB_LOCATION VARCHAR(200));
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> DESC EMPLOYEE_SECONDARY_INFO;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| EMP_ID           | int(11)      | NO   | PRI | NULL    |       |
+| PERSONAL_MAILID  | varchar(200) | YES  |     | NULL    |       |
+| GENDER           | varchar(150) | YES  |     | NULL    |       |
+| GOVT_ID          | varchar(200) | YES  |     | NULL    |       |
+| AGE              | int(11)      | YES  |     | NULL    |       |
+| NATIONALITY      | varchar(150) | YES  |     | NULL    |       |
+| MARITAL_STATUS   | varchar(150) | YES  |     | NULL    |       |
+| GUARDIAN_NAME    | varchar(200) | YES  |     | NULL    |       |
+| GUARDIAN_CONTACT | mediumtext   | YES  |     | NULL    |       |
+| JOB_LOCATION     | varchar(200) | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+CREATE TABLE DEPARTMENT_INFO(DEPT_ID INT PRIMARY KEY,DEPT_NAME VARCHAR(200),DEPT_MANGERID INT);
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> DESC DEPARTMENT_INFO;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| DEPT_ID       | int(11)      | NO   | PRI | NULL    |       |
+| DEPT_NAME     | varchar(200) | YES  |     | NULL    |       |
+| DEPT_MANGERID | int(11)      | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> CREATE TABLE EMPLOYEE_BANK_INFO(EMP_ID INT PRIMARY KEY,ACCOUNT_NO LONG,BANK_NAME VARCHAR(150),BRANCH_NAME VARCHAR(150),IFSC_CODE VARCHAR(150));
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> DESC EMPLOYEE_BANK_INFO;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| EMP_ID      | int(11)      | NO   | PRI | NULL    |       |
+| ACCOUNT_NO  | mediumtext   | YES  |     | NULL    |       |
+| BANK_NAME   | varchar(150) | YES  |     | NULL    |       |
+| BRANCH_NAME | varchar(150) | YES  |     | NULL    |       |
+| IFSC_CODE   | varchar(150) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+CREATE TABLE EMPLOYEE_ADDRESS_INFO(EMP_ID INT,ADDRESS_TYPE VARCHAR(200),HOUSE_NO INT,ADDRESS1 VARCHAR(150),ADDRESS2 VARCHAR(150),LANDMARK VARCHAR(150),CITY VARCHAR(200),PINCODE LONG,
+    ->  PRIMARY KEY(EMP_ID,ADDRESS_TYPE));
+Query OK, 0 rows affected (0.42 sec)
+
+mysql> DESC EMPLOYEE_ADDRESS_INFO;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| EMP_ID       | int(11)      | NO   | PRI | NULL    |       |
+| ADDRESS_TYPE | varchar(200) | NO   | PRI | NULL    |       |
+| HOUSE_NO     | int(11)      | YES  |     | NULL    |       |
+| ADDRESS1     | varchar(150) | YES  |     | NULL    |       |
+| ADDRESS2     | varchar(150) | YES  |     | NULL    |       |
+| LANDMARK     | varchar(150) | YES  |     | NULL    |       |
+| CITY         | varchar(200) | YES  |     | NULL    |       |
+| PINCODE      | mediumtext   | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+ CREATE TABLE EMPLOYEE_EDUCATION_INFO(EMP_ID INT,EDUCATION_TYPE VARCHAR(150),COLLEGE_NAME VARCHAR(200),YOP DATE,STREAM VARCHAR(200),PERCENTAGE DOUBLE,UNIVERSITY_NAME VARCHAR(150),
+    -> PRIMARY KEY(EMP_ID,EDUCATION_TYPE));
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> CREATE TABLE PROJECT_INFO(PROJ_ID INT PRIMARY KEY,PROJ_NAME VARCHAR(120),TECHNOLOGY VARCHAR(200),START_DATE DATE,END_DATE DATE,LOCATION VARCHAR(150));
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> CREATE TABLE EMPLOYEE_PROJECT_INFO(EMP_ID INT,PROJ_ID INT,PRIMARY KEY(EMP_ID,PROJ_ID));
+Query OK, 0 rows affected (0.33 sec)
