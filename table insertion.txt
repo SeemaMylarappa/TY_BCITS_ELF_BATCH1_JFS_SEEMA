@@ -1,0 +1,120 @@
+use employee_management_info;
+Database changed
+mysql> desc  employee_management_info;
+ERROR 1146 (42S02): Table 'employee_management_info.employee_management_info' doesn't exist
+mysql> show databases;
++--------------------------+
+| Database                 |
++--------------------------+
+| information_schema       |
+| bcits                    |
+| employee_management_info |
+| mysql                    |
+| performance_schema       |
+| sys                      |
+| ty                       |
++--------------------------+
+7 rows in set (0.00 sec)
+
+mysql> desc employee-primary_info;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-primary_info' at line 1
+mysql> desc employee_primary_info;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| EMP_ID          | int(11)      | NO   | PRI | NULL    |       |
+| E_NAME          | varchar(150) | YES  |     | NULL    |       |
+| MOBILE_NO       | mediumtext   | YES  |     | NULL    |       |
+| OFFICIAL_MAILID | varchar(200) | YES  |     | NULL    |       |
+| DATE_OF_BIRTH   | date         | YES  |     | NULL    |       |
+| DATE_OF_JOIN    | date         | YES  |     | NULL    |       |
+| DESIGNATION     | varchar(200) | YES  |     | NULL    |       |
+| BLOOD_GRP       | varchar(200) | YES  |     | NULL    |       |
+| SALARY          | double       | YES  |     | NULL    |       |
+| DEPT_ID         | int(11)      | YES  |     | NULL    |       |
+| MANAGER_ID      | int(11)      | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+ select *
+    -> from employee_primary_info;
++--------+-----------+------------+-----------------------+---------------+--------------+-------------+-----------+--------+---------+------------+
+| EMP_ID | E_NAME    | MOBILE_NO  | OFFICIAL_MAILID       | DATE_OF_BIRTH | DATE_OF_JOIN | DESIGNATION | BLOOD_GRP | SALARY | DEPT_ID | MANAGER_ID |
++--------+-----------+------------+-----------------------+---------------+--------------+-------------+-----------+--------+---------+------------+
+|     10 | SEEMA     | 9687412354 | seemamdvg@gmail.com   | 1997-12-11    | 2020-02-01   | DEVELOPER   | AB+       |  30000 |      10 |        100 |
+|     20 | SAHANA    | 9658741532 | sahana@gmail.com      | 1996-11-03    | 2022-04-06   | TESTER      | AB-       |  25000 |      20 |        101 |
+|     30 | VENKATESH | 9966332254 | venkatesh23@gmail.com | 1996-11-07    | 2019-08-17   | MANAGER     | O-        |  32000 |      20 |        101 |
+|     40 | SACHIN    | 9658741523 | sachin@gmail.com      | 2001-05-30    | 2025-05-30   | HR          | A+        |  43000 |      40 |        102 |
+|     50 | PREETHI   | 9966332245 | preethi@gmail.com     | 1995-03-17    | 2018-06-01   | CLERK       | B+        |  10000 |      50 |        104 |
+|     60 | LAVANYA   | 9955227745 | lavanya@gmail.com     | 1994-09-08    | 2017-04-02   | DEVELOPER   | AB+       |  28000 |      10 |        106 |
+|     70 | SHUBHAM   | 9966332251 | shubham@gmail.com     | 2001-03-09    | 2020-09-04   | HR          | A-        |  54000 |      30 |        106 |
+|     80 | MEGHANA   | 9988552146 | meghana@gmail.com     | 2000-05-19    | 2022-01-05   | TESTER      | AB+       |  34000 |      10 |        107 |
+|     90 | PRASAD    | 9955446622 | prasad@gmail.com      | 1994-02-04    | 2017-05-03   | DEVELOPER   | AB-       |  52000 |      20 |        108 |
+|    100 | YAMUNA    | 9955446624 | yamuna@gmail.com      | 1994-09-04    | 2017-06-03   | ANALYST     | A-        |  23000 |      30 |        109 |
++--------+-----------+------------+-----------------------+---------------+--------------+-------------+-----------+--------+---------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select *
+    -> from department_info;
+Empty set (0.00 sec)
+
+mysql> desc department_info;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| DEPT_ID       | int(11)      | NO   | PRI | NULL    |       |
+| DEPT_NAME     | varchar(200) | YES  |     | NULL    |       |
+| DEPT_MANGERID | int(11)      | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into department_info values(10,'development',101),(20,'testing',102),(30,'hr',103),(40,'developer',104),(10,'sales',105),(20,'hr',106),(30,'testing',107);
+ERROR 1062 (23000): Duplicate entry '10' for key 'PRIMARY'
+mysql> insert into department_info values(10,'development',101),(20,'testing',102),(30,'hr',103),(40,'developer',104),(50,'sales',105),(60,'hr',106),(70,'testing',107);
+Query OK, 7 rows affected (0.08 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> insert into department_info values(80,'clerk',108),(90,'tester',109),(100,'development',110);
+Query OK, 3 rows affected (0.32 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> delete from  department_info
+    -> where dept_id=40;
+Query OK, 1 row affected (0.36 sec)
+
+mysql> insert into department_info values(40,'development',104);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select *
+    -> from department_info;
++---------+-------------+---------------+
+| DEPT_ID | DEPT_NAME   | DEPT_MANGERID |
++---------+-------------+---------------+
+|      10 | development |           101 |
+|      20 | testing     |           102 |
+|      30 | hr          |           103 |
+|      40 | development |           104 |
+|      50 | sales       |           105 |
+|      60 | hr          |           106 |
+|      70 | testing     |           107 |
+|      80 | clerk       |           108 |
+|      90 | tester      |           109 |
+|     100 | development |           110 |
++---------+-------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> desc employee_bank_info;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| EMP_ID      | int(11)      | NO   | PRI | NULL    |       |
+| ACCOUNT_NO  | mediumtext   | YES  |     | NULL    |       |
+| BANK_NAME   | varchar(150) | YES  |     | NULL    |       |
+| BRANCH_NAME | varchar(150) | YES  |     | NULL    |       |
+| IFSC_CODE   | varchar(150) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employee_address_info values(40,'permanent-add',950,'house_no 950','Vidhynagar','BTM','Marthahalli',590550),(50,'current_add',550,'house_no 550','balaji_nagar','mysore_road',
+    -> 'mysore',599001),(60,'permanent_add',230,'house_no 230','manyatha','manyatha_road','mandya',566004);
+Query OK, 3 rows affected (0.16 sec)
+Records: 3  Duplicates: 0  Warnings: 0
