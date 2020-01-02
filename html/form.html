@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form</title>
+</head>
+<body>
+    <form action="">
+        <div>
+          <label for="fname">Name</label><br>
+         <input type="text" name="name" id="fname">  <!-- for and id should be same -->
+        </div>
+        <div>
+            <label for="">Mobile</label><br>
+            <input type="tel" name="" id="">
+          </div>
+          <div>
+              <label for="">Email</label><br>
+              <input type="email" name="" id="">
+          </div>
+          <div>
+              <label for="">Gender</label><br>
+              <input type="radio" name="Gender" id="Gender">Male   <!---to select one make name as same-->
+              <input type="radio" name="Gender" id="Gender">Female
+              <input type="radio" name="Gender" id="Gender">Others
+          </div>
+          <div>
+              <label for="cv">Upload CV:</label><br>
+              <input type="file" name="cv" id="cv">
+          </div>
+          <div>
+              <label for="month">Joining Month:</label>
+              <select name="month" id="month">
+              <option value="0" selected disabled>Select</option>
+              <option value="jan">January</option>
+              <option value="feb">February</option>
+              <option value="march">March</option>
+              <option value="april">April</option>
+              <option value="may">May</option>
+              <option value="June">June</option>
+            </select>
+          </div>
+          <div>
+              <label for="comments">Comments:</label><br>
+              <textarea name="comments" id="" cols="30" rows="10"></textarea>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="">
+              <label for="">I agree for Terms and Conditions</label>
+          </div>
+          <div>
+              <input type="button" value="Submit">
+              <button type="submit">Submit</button>
+          </div>
+    </form>
+</body>
+</html>
