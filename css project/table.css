@@ -1,0 +1,27 @@
+table, td, th{
+    /* border: 1px solid black;
+    border-collapse: collapse; */
+    border-radius: 50px;
+}
+table{
+    width: 600px;
+    height: 500px;
+    text-align: center;
+    font-size: 20px;
+    font-family: cursive;
+}
+th{
+    background-color: cadetblue;
+
+}
+tr:nth-child(even)   {               /*pesudo selectors*/
+         background-color: darkgoldenrod;
+} 
+tr:nth-child(odd)  {
+    background-color: darkkhaki;
+}
+td:hover{
+    background: darksalmon;
+    color:firebrick;
+}
+                    
