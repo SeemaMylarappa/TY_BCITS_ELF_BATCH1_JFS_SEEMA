@@ -1,0 +1,43 @@
+form{
+    background-color: rgba(36, 35, 35, 0.925);
+    color: white;
+    width: 445px;
+    height: 347px;
+    padding-left: 19px;
+    padding-top: 30px;
+    margin: auto;
+   
+}
+input[type=text]{
+    height: 22px;
+    width: 210px;
+}
+input[type=email],input[type=password]{
+    height: 22px;
+    width: 427px;
+}
+input[type=button][value="Sign Up"]{
+    outline: none;
+    border: none;
+    height: 38px;
+    width: 213px;
+    background-color: rgb(76, 168, 133);
+}
+input[type=button][value="Log In"]{
+    outline: none;
+    border: none;
+    margin-left: -3px;
+    height: 38px;
+    width: 217px;
+}
+input[type=button][value="GET STARTED"]{
+    outline: none;
+    border: none;
+    background-color: rgb(76, 168, 133);
+    height: 38px;
+    width: 428px;
+}
+h2{
+    text-align: center;
+}
+
