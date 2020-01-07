@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+<style>
+   .prop{
+       display: none;
+   }
+   
+</style>
+</head>
+
+<body>
+    <button onclick="showAlert()">
+        Click Me!!!
+    </button>
+    <button onclick="showElement()">
+        Click to create Element</button>
+        <h1 id="disp" class="prop">Display Properties</h1>
+
+        <button onclick="displayElement()">Click this to show h1 element</button>
+
+        <button onclick="hideElement()">Click this to hide h1 element</button>
+
+        <p onmouseover="color()" onmouseout="changeColor()" id="cgcolor">Color change</p>
+
+        <input onkeyup="showData()" onkeydown="showDetail()"  id='myIpt'/><br>
+
+        <input id='inp' onkeyup='getInputValue()'>
+        
+        <h1 id="show"></h1>
+
+    <script src="/events/event.js"></script>
+</body>
+
+</html>
