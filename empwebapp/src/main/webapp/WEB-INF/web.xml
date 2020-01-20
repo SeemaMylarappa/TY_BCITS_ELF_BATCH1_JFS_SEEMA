@@ -41,4 +41,29 @@
      <servlet-name>searchEmployee</servlet-name>
     <url-pattern>/searchEmp</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>myFirstJsp</servlet-name>
+  <jsp-file>/myFirstJsp.jsp</jsp-file>
+  
+  </servlet>
+  
+  <servlet-mapping>
+   <servlet-name>myFirstJsp</servlet-name>
+   <url-pattern>/firstJsp</url-pattern>
+  
+  </servlet-mapping>
+  
+   <servlet>
+  <servlet-name>myJsp2</servlet-name>
+  <jsp-file>/myJsp2.jsp</jsp-file>
+  
+  </servlet>
+  
+  <servlet-mapping>
+   <servlet-name>myJsp2</servlet-name>
+   <url-pattern>/secJsp</url-pattern>
+  
+  </servlet-mapping>
+  
 </web-app>
