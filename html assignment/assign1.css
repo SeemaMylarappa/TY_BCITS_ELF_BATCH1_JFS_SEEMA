@@ -1,0 +1,26 @@
+form{
+    border: 1px solid black;
+    width: 443px;
+    height: 674px;
+    background-color:chocolate;
+    padding-left: 63px;
+    padding-top: 44px;
+    font-family: cursive;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="date"]{
+    height: 20px;
+    width: 349px;
+    background-color: thistle;
+   
+}
+button[type="submit"], button[type="reset"]{
+    height: 34px;
+    width: 126px;
+    background-color: crimson;
+    color: white;
+    padding-right: 10px;
+   
+}
+input[type="radio"]{
+    background-color: thistle;
+}

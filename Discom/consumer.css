@@ -1,0 +1,31 @@
+ nav{
+    background-color: goldenrod;
+    height: 135px;
+    width: 1585px;
+}
+input[type='text'],[type='password'],[type='email']{
+    height: 38px;
+    width: 455px;
+    margin-left: 183px;
+    margin-top: 16px;
+}
+h5{
+    margin-left: 183px;
+    margin-top: 30px;
+   
+}
+input[type='button']{
+    margin-left: 183px;
+    height: 44px;
+    width: 153px;
+    background-color: goldenrod;
+    border: none;
+    outline: none;
+}
+
+/*
+input[type='search']{
+    color: black;
+    height: 42px;
+    width: 284px;
+} */

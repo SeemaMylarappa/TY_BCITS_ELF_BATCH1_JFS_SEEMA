@@ -1,0 +1,13 @@
+form{
+    border: 1px solid black;
+    height: 621px;
+    width: 691px;
+    background-color: lemonchiffon;
+    padding-left: 80px;
+    padding-top: 47px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+input[type="text"][value="0"], [type="text"]{
+    height: 20px;
+    width: 266px;
+}
