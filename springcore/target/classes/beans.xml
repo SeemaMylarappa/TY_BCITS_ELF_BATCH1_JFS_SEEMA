@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <bean id="message" class="com.bcits.beans.MessageBean">
+   <property name="message" value="Welcome to Spring Core..." />
+   </bean>
+   
+   <bean id="employee" class="com.bcits.beans.EmployeeBean" scope="prototype"
+    >
+   
+  <!--  <bean id="employee" class="com.bcits.beans.EmployeeBean" scope="prototype"> -->
+   <!-- <property name="name" value="Sunil"/>
+   <property name="age" value="23"/>
+   </bean>
+   
+   <bean id="employee2" class="com.bcits.beans.EmployeeBean">
+   <property name="name" value="Charan" />
+   <property name="age" value="24" /> -->
+   
+   </bean>
+
+</beans>
