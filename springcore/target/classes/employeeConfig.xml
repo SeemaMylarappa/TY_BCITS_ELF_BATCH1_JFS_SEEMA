@@ -4,14 +4,50 @@
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-   <bean id="employee" class="com.bcits.beans.EmployeeBean">
+<!-- //autowire by name -->
+  <!--  <bean id="employee" class="com.bcits.beans.EmployeeBean" autowire="byName">
    <property name="name" value="Sud" />
    <property name="age" value="55" />
    <property name="departmentBean" ref="department" />
+   </bean> --> 
+   
+  <!-- autowire by type --> 
+   <!--  <bean id="employee" class="com.bcits.beans.EmployeeBean" autowire="byType">
+   <property name="name" value="Sud" />
+   <property name="age" value="55" />
+    <property name="departmentBean" ref="department" /> 
+   </bean>   -->
+   
+    <!-- <bean id="employee" class="com.bcits.beans.EmployeeBean" >
+      <constructor-arg name="age" value="25" />
+      <constructor-arg name="name" value="Prashuul" />
+      <constructor-arg name="departmentBean" ref="department" />
+   </bean> -->
+    
+  <!--  <bean id="employee" class="com.bcits.beans.EmployeeBean" autowire="constructor" >
+      <constructor-arg name="age" value="25" />
+      <constructor-arg name="name" value="Prashuul" /> 
+  </bean> -->
+   
+   
+   
+  <bean id="employee" class="com.bcits.beans.EmployeeBean" autowire="byType">
+   <property name="name" value="Sud" />
+   <property name="age" value="55" />
+    <property name="departmentBean" ref="department" />
    </bean>
    
-   <bean id="department" class="com.bcits.beans.DepartmentBean">
-   <property name="deptId" value="10" />
-   <property name="deptName" value="Dev"></property>
-   </bean>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 </beans>

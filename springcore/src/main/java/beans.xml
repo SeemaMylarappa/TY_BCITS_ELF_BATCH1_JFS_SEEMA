@@ -10,11 +10,12 @@
    
    <bean id="employee" class="com.bcits.beans.EmployeeBean" scope="prototype"
     >
-   
-  <!--  <bean id="employee" class="com.bcits.beans.EmployeeBean" scope="prototype"> -->
-   <!-- <property name="name" value="Sunil"/>
+  <!--  <bean id="employee" class="com.bcits.beans.EmployeeBean" scope="prototype"> 
+   <property name="name" value="Sunil"/>
    <property name="age" value="23"/>
-   </bean>
+   </bean> -->
+   
+    
    
    <bean id="employee2" class="com.bcits.beans.EmployeeBean">
    <property name="name" value="Charan" />

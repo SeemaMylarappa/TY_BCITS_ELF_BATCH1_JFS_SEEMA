@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- <bean> -->
+
+<!-- //autowire by name -->
+  <!--  <bean id="departmentBean" class="com.bcits.beans.DepartmentBean">
+   <property name="deptId" value="10" />
+   <property name="deptName" value="Dev"></property>
+   </bean> -->
+   
+   <!-- //autowire by type -->
+  <!--  <bean id="department" class="com.bcits.beans.DepartmentBean">
+   <property name="deptId" value="10" />
+   <property name="deptName" value="Dev"></property>
+   </bean> -->
+   
+   <!-- //autowire by constructor -->
+   <!-- <bean id="department" class="com.bcits.beans.DepartmentBean">
+   <property name="deptId" value="10" />
+   <property name="deptName" value="Dev"></property>
+   </bean> -->
+   
+   <bean id="department" class="com.bcits.beans.DepartmentBean" autowire-candidate="true">
+   <property name="deptId" value="10" />
+   <property name="deptName" value="Dev"></property>
+   </bean>
+   
+   <bean id="test" class="com.bcits.beans.DepartmentBean" autowire-candidate="default">
+   <property name="deptId" value="20" />
+   <property name="deptName" value="test"></property>
+   </bean>
+   
+   <bean id="hr" class="com.bcits.beans.DepartmentBean">
+   <property name="deptId" value="30" />
+   <property name="deptName" value="hr"></property>
+   </bean>
+   
+   </beans>
