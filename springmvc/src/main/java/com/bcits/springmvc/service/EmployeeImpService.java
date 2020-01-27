@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bcits.springmvc.DAO.EmployeeDAO;
 import com.bcits.springmvc.bean.EmployeeInfoBean;
+import com.bcits.springmvc.exception.EmployeeException;
 
 @Service
 public class EmployeeImpService implements EmployeeService{
@@ -42,8 +43,16 @@ public class EmployeeImpService implements EmployeeService{
 
 	@Override
 	public EmployeeInfoBean getEmployee(int empId) {
+		if(empId<1) {
+			throw new EmployeeException("Invalid Employee ID");
+		}
+		EmployeeInfoBean employeeInfoBean=dao.getEmployee(empId);
 		
-		return dao.getEmployee(empId);
+		if (employeeInfoBean == null) {
+			throw new EmployeeException("Employee ID Not Found!");
+		}
+		
+		return employeeInfoBean;
 	}
 
 	@Override
