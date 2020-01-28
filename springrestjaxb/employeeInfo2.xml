@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Employee-info>
+    <employee-id>1234</employee-id>
+    <eName>Sonu</eName>
+    <salary>50000.0</salary>
+    <department-id>30</department-id>
+    <dateOfJoin>1936-01-28</dateOfJoin>
+    <mobile>9631234576</mobile>
+    <officialMailid>sonu@gmail.com</officialMailid>
+    <designation>Developer</designation>
+    <dateOfBirth>1947-01-28</dateOfBirth>
+    <managerId>120</managerId>
+    <password>qwerty</password>
+</Employee-info>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Employee-info>
+    <employee-id>999</employee-id>
+    <eName>Pooja</eName>
+    <salary>32000.0</salary>
+    <department-id>20</department-id>
+    <dateOfJoin>2020-01-28T12:00:33.942+05:30</dateOfJoin>
+    <mobile>9631234567</mobile>
+    <officialMailid>pooja@gmail.com</officialMailid>
+    <designation>Developer</designation>
+    <dateOfBirth>2020-01-28T12:00:33.942+05:30</dateOfBirth>
+    <managerId>120</managerId>
+    <password>qwerty</password>
+</Employee-info>

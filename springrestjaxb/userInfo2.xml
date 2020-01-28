@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Employee-info>
+    <employee-id>999</employee-id>
+    <eName>Pooja</eName>
+    <salary>32000.0</salary>
+    <department-id>20</department-id>
+    <dateOfJoin>2020-01-28T13:45:57.145+05:30</dateOfJoin>
+    <mobile>9631234567</mobile>
+    <officialMailid>pooja@gmail.com</officialMailid>
+    <designation>Developer</designation>
+    <dateOfBirth>2020-01-28T13:45:57.145+05:30</dateOfBirth>
+    <managerId>120</managerId>
+    <password>qwerty</password>
+    <user-other-info>
+        <gender>female</gender>
+        <aadhar>123654789</aadhar>
+    </user-other-info>
+    <user-address-list>
+        <userAdressList>
+            <house-number>2</house-number>
+            <street>xyz street</street>
+            <city>Hyd</city>
+            <address-type>112</address-type>
+        </userAdressList>
+        <userAdressList>
+            <house-number>1</house-number>
+            <street>abc street</street>
+            <city>BLR</city>
+            <address-type>116</address-type>
+        </userAdressList>
+    </user-address-list>
+</Employee-info>

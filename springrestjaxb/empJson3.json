@@ -1,0 +1,13 @@
+{
+	"salary": 32000.0,
+ 	"departmentId": 20, 
+	"dateOfJoin": 1580207480317,
+	"mobile": 9631234567,
+	"officialMailid": "pooja@gmail.com",
+	"designation": "Developer",
+	"dateOfBirth": 1580207480317,
+	"managerId": 120,
+	"ename": "Pooja",
+	"employeeId": 999,
+	"password":"mypassword"
+}

@@ -1,0 +1,31 @@
+{
+	"empId": 1000,
+	"salary": 45000.0,
+	"departmentId": 30,
+	"dateOfJoin": 1580209712171,
+	"mobile": 9631234567,
+	"officialMailid": "venky@gmail.com",
+	"designation": "Dev",
+	"dateOfBirth": 1580209712171,
+	"managerId": 130,
+	"password": "root",
+	"userOtherInfoBean": {
+		"gender": "male",
+		"adhaarNumber": 1236958789
+	},
+	"userAdressList": [
+		{
+			"houseNum": 2,
+			"street": "xyz street",
+			"city": "Hyd",
+			"addresstype": "p"
+		},
+		{
+			"houseNum": 1,
+			"street": "abc street",
+			"city": "BLR",
+			"addresstype": "t"
+		}
+	],
+	"ename": "venkatesh"
+}
