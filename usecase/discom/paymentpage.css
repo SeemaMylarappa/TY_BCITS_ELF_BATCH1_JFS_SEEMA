@@ -1,0 +1,18 @@
+
+body{
+    
+    padding-right: 216px;
+    background-image: url("./images/pay.jpg");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form{
+   
+    text-align: center;
+    margin-top: 80px;
+    margin-left: 263px;
+    margin-right: -446px;
+}
+   

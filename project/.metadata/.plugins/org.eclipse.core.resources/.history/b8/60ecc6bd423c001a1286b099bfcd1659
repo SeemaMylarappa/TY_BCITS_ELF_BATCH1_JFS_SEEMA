@@ -1,0 +1,5 @@
+package com.bcits.usecase.table;
+
+public class InsertEmployeeMaster {
+
+}

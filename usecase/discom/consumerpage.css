@@ -1,0 +1,38 @@
+.navbar{
+    height: 80px;
+    
+
+}
+
+form{
+    padding-right: 211px;
+    padding-left: 496px;
+    padding-top: 50px;
+    /* border: 2px solid black;
+    border-radius: 10px; */
+
+    
+}
+body{
+    
+    background-image: url("/images/light_bulb_electricity_lighting_135674_1920x1080.jpg");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+   
+    
+}
+input[type="button"]{
+    width: 80px;
+    height: 42px;
+    border-radius: 10px;
+    outline: none;
+    
+}
+input[type="text"] , [type="password"]{
+    height: 42px;
+    width: 323px;
+    border-radius: 5px;
+    outline: none;
+}
