@@ -1,0 +1,25 @@
+body{
+    background-image: url("../images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    float: inline-end;
+}
+.login{
+    margin-top: 203px;
+    padding-left: 463px;
+    
+    
+    
+}
+.login1{
+    margin-top: 92px;
+    padding-left: 463px;
+    
+}
+input[type="button"]{
+    height: 80px;
+    width: 80px;
+}
+

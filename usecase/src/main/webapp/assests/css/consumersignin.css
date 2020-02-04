@@ -1,0 +1,20 @@
+body{
+    background-image: url("../images/Emley_Moor_Tower_by_night.jpg");
+    /* background-position: center; */
+     background-size: cover;  
+    /* background-repeat: no-repeat; */
+    
+
+}
+
+form{
+   height:180px;
+    width: 50px;
+    text-align:left;
+}
+#design{
+    height: 53px;
+    width: 556px;
+    outline: black;
+    background-size:cover ;
+}
