@@ -19,6 +19,7 @@ public class EmployeeMaster implements Serializable{
 	private int empId;
 	@Column(name="password")
 	private String password;
-	
+	@Column
+	private String region;
 
 }

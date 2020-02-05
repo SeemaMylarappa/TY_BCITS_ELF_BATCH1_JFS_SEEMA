@@ -30,21 +30,21 @@
   
   <% } %>
 <div class="background">
-    <form action="" method="get">
+    <form action="./home" method="get">
 
         <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 mt-5 mx-auto d-block bg-img">
            
-            <h3 style="text-align: center; font-weight: 700; font-size: 60px;color: white;">DISCOM PRIVATE LIMITED</h3>
+            <h3 style="text-align: center; font-weight: 700; font-size: 60px;color:orange">DISCOM PRIVATE LIMITED</h3>
             <div class="login">
                 <button  type="button" class="btn btn-light btn-lg">
                     <i class="far fa-user"></i>
-                    <a style="color: black;"  href="./employeeLoginPage" >Employee Login</a>   
+                    <a style="color: black;text-align: center;" href="./employeeLoginPage" >Employee Login</a>   
                        </button>
                     </div>
                     <div class="login1">
                         <button  type="button" class="btn btn-light btn-lg">
                             <i class="fas fa-user"></i>
-                               <a style="color: black;" href="./consumerLoginPage">Consumer Login</a>
+                               <a style="color: black;text-align: center;" href="./consumerLoginPage">Consumer Login</a>
                                </button>
                     </div>    
         </div>

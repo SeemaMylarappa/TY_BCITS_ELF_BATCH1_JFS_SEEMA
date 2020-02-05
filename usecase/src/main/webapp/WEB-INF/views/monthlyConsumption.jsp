@@ -64,6 +64,8 @@
 					<th scope="col">Date &nbsp;&nbsp;&nbsp;</th>
 					<th scope="col">Units Consumed&nbsp;&nbsp;&nbsp;</th>
 					<th scope="col">Amount&nbsp;&nbsp;&nbsp;</th>
+					<th scope="col">Previous Reading&nbsp;&nbsp;&nbsp;</th>
+					<th scope="col">Current Reading&nbsp;&nbsp;&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -73,6 +75,8 @@
         <td><%= format.format(list.getMonthlyConsumptionprikey().getDate())%>&nbsp;&nbsp;&nbsp;</td>
          <td><%=list.getUnitsConsumed()%>&nbsp;&nbsp;&nbsp;</td>
            <td><%=list.getAmount()%>&nbsp;&nbsp;&nbsp;</td>
+           <td><%=list.getPreviousReading()%>&nbsp;&nbsp;&nbsp;</td>
+           <td><%=list.getCurrentReading()%>&nbsp;&nbsp;&nbsp;</td>
            <% } %>
 				</tr>
 

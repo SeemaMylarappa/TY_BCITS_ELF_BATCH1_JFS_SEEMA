@@ -26,52 +26,52 @@
 
 
             <div class="form-group">
-                <h4 style="color: white;">Personal Details</h4><br>
-                <label for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;First Name</label>
+                <h4>Personal Details</h4><br>
+                <label for="exampleFormControlInput1">&nbsp;&nbsp;First Name</label>
                 <input type="text" class="form-control" id="firstName" name="firstName"
                     placeholder="Enter your First Name" required>
             </div>
 
             <div class="form-group">
-                <label  for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;Last Name</label>
+                <label  for="exampleFormControlInput1">&nbsp;&nbsp;Last Name</label>
                 <input type="text" class="form-control" id="lastName" name="lastName"
                     placeholder="Enter your Last Name" required>
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;Email address</label>
+                <label for="exampleFormControlInput1">&nbsp;&nbsp;Email address</label>
                 <input type="email" class="form-control" id="emailId" name="emailId" placeholder="name@example.com" required>
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;Mobile Number</label>
+                <label for="exampleFormControlInput1">&nbsp;&nbsp;Mobile Number</label>
                 <input type="tel" class="form-control" id="mobileNo" name="mobileNo"
                     placeholder="Enter 10 digit Number" required>
             </div>
             
              <div class="form-group">
-                <label for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;Password</label>
+                <label for="exampleFormControlInput1">&nbsp;&nbsp;Password</label>
                 <input type="password" class="form-control" id="password" name="password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>    >
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
             </div>
             
              <div class="form-group">
-                <label for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;Confirm password</label>
+                <label for="exampleFormControlInput1">&nbsp;&nbsp;Confirm password</label>
                 <input type="password" class="form-control" id="confirmpassword" name="confirmpassword"
-                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  >
+                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  
             </div>
 
             <div>
                 <br>
-                <h4 style="color: white;">Address Details</h4><br>
-                <label for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;Address Line1</label>
+                <h4>Address Details</h4><br>
+                <label for="exampleFormControlInput1">&nbsp;&nbsp;Address Line1</label>
                 <input type="tel" class="form-control" id="addressLine1" name="addressLine1" required>
 
             </div>
 
             <div>
                 <br>
-                <label for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;Address Line2</label>
+                <label for="exampleFormControlInput1">&nbsp;&nbsp;Address Line2</label>
                 <input type="tel" class="form-control" id="addressLine2" name="addressLine2" required>
                 <br>
             </div>
@@ -79,7 +79,7 @@
            
 
             <div class="form-group col-md-4">
-                <label for="inputState" style="color: white;">Region</label>
+                <label for="inputState">Region</label>
                 <select id="inputState" class="form-control" name="region" required>
                   <option selected disabled >Choose...</option>
                   <option>Bangalore North</option>
@@ -88,7 +88,7 @@
               </div>
               
               <div class="form-group col-md-4">
-                <label for="inputState" style="color: white;">Type of Consumers</label>
+                <label for="inputState">Type of Consumers</label>
                 <select id="inputState" class="form-control" name="typeOfConsumer" required>
                   <option selected disabled >Choose...</option>
                   <option>Residential Consumer</option>
@@ -107,8 +107,8 @@
 
             <div>
                 <br>
-                <h4 style="color: white;">Account Details</h4><br>
-                <label for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;Revenue Register Number/RR Number</label>
+                <h4>Account Details</h4><br>
+                <label for="exampleFormControlInput1">&nbsp;&nbsp;Revenue Register Number/RR Number</label>
                 <input type="tel" class="form-control" id="rrNumber" name="rrNumber"
                     placeholder="Enter Alpha Numeric Number" required><br>
 
@@ -116,7 +116,7 @@
            
             <div>
                 <br>
-            <label for="exampleFormControlInput1" style="color: white;">&nbsp;&nbsp;Account ID</label>
+            <label for="exampleFormControlInput1">&nbsp;&nbsp;Account ID</label>
             <input type="tel" class="form-control" id="accountId" name="accountId" placeholder="Enter 10 Numbers" required>
 
             </div>

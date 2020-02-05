@@ -54,7 +54,7 @@
 				</thead>
 				</table>
 
-<table class="table table-hover">
+<table class="table table-hover";>
   <thead>
     <tr>
     <th scope="col">PaymentDate&nbsp;&nbsp;&nbsp;</th>
@@ -64,15 +64,16 @@
     </tr>
   </thead>
   <tbody>
+      <% for(BillHistoryBean list : billHistoryBeans) {  %>
     <tr>
-    
-     <% for(BillHistoryBean list : billHistoryBeans) {  %>
+
 		<% SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); %>			
         <td><%= formatter.format(list.getBillhistorypk().getPaymentdate()) %>&nbsp;&nbsp;&nbsp;</td>
          <td><%=list.getAmount()%>&nbsp;&nbsp;&nbsp;</td>
            <td><%=list.getStatus()%>&nbsp;&nbsp;&nbsp;</td>
-           <% } %>
+         
     </tr>
+     <% } %>
  
   </tbody>
 </table>

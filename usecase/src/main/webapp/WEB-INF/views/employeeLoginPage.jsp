@@ -24,22 +24,30 @@
   
   <% } %>
     
-     <form action="./empPage" >
+     <form action="./empPage" method="post" >
    <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 mt-5 mx-auto d-block bg-img">
        <div>
            <br>
-           <h3 style="color: white;">Employee ID</h3>
+           <h3>Employee ID</h3>
            <pre></pre>
-           <input type="number" name="empId" id="empId" placeholder="Enter your ID Number" >
+           <input type="tel" name="empId" id="empId" placeholder="Enter your ID Number" >
 
        </div>
       
 
        <div>
            <br>
-           <h3 style="color: white;">Password</h3>
+           <h3>Password</h3>
            <pre></pre>
            <input type="password" name="password" id="password" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+       </div>
+       
+         <div>
+           <br>
+           <h3>Region</h3>
+           <pre></pre>
+           <input type="text" name="region" id="region" placeholder="Enter your region" >
 
        </div>
        
@@ -54,7 +62,7 @@
        
        <br>
        <div>
-        <a class="btn btn-warning" href="/homePage" role="button">Home</a>
+        <a class="btn btn-warning" href="./home" role="button">Home</a>
       </div>
    </div>
   </div>

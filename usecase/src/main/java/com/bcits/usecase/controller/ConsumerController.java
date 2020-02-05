@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -60,19 +61,18 @@ public class ConsumerController {
 		return "paymentPage";
 	}// end of displaypaymentPage()
 
-	@GetMapping("/consumerdetail")
-	public String displayConsumerDetail() {
-
-		return "consumerDetails";
-	}// end of displayConsumerDetail()
-	
+	/*
+	 * @GetMapping("/consumerdetail") public String displayConsumerDetail() {
+	 * 
+	 * return "consumerDetails"; }// end of displayConsumerDetail()
+	 */	
 
 	
 
 
 	@GetMapping("/logout")
-	public String logOutPage() {
-
+	public String logOutPage( HttpSession session) {
+		session.invalidate();
 		return "homePage";
 	}
 
@@ -98,7 +98,7 @@ public class ConsumerController {
 			return "consumerDetails";
 		} else {
 			map.addAttribute("errmsg", "Invalid Credentials");
-			return "consumerDetails";
+			return "consumerLoginPage";
 		}
 	}// end of consumerLogin()
 
@@ -138,7 +138,7 @@ public class ConsumerController {
 			}
 		} else {
 			modelMap.addAttribute("errMsg", "Please Login First");
-			return "consumerDetails";
+			return "consumerLoginPage";
 		}
 	}// end of displayMonthlyConsumption()
 	
@@ -156,11 +156,11 @@ public class ConsumerController {
 				return "billHistory";
 			}else {
 				modelMap.addAttribute("errMsg", "MonthlyConsumption is not generated");
-				return "consumerLoginPage";
+				return "consumerDetails";
 			}
 		} else {
 			modelMap.addAttribute("errMsg", "Please Login First");
-			return "consumerDetails";
+			return "consumerLoginPage";
 		}
 		
 		

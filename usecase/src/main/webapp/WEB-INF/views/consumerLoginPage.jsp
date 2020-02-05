@@ -37,7 +37,7 @@
      
       <div>
         <br>
-        <h3 style="color: white;">Enter your Email ID</h3>
+        <h3>Enter your Email ID</h3>
         <pre></pre>
         <input type="text" id="emailID" name="emailId" placeholder="Enter email ID">
 
@@ -46,9 +46,9 @@
 
       <div>
         <br>
-        <h3 style="color: white;">Password</h3>
+        <h3>Password</h3>
         <pre></pre>
-        <input type="password" name="password" id="password" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>>
+        <input type="password" name="password" id="password" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 
       </div>
       <div>
@@ -58,13 +58,13 @@
 
       </div>
       <br>
-      <span style="font-size: large;color: white;"><h5> New User?</h5> </span>
+      <span style="font-size: large;"><h5> New User?</h5> </span>
       <a style="color: cadetblue;font-size: large;font-weight: bolder;" href="./consumerSignUpPage"><h5>Register Here</h5> </a>
 
      
       <br>
       <div>
-        <a class="btn btn-warning" href="./homePage" role="button">Home</a>
+        <a class="btn btn-warning" href="./home" role="button">Home</a>
       </div>
      
     </div>

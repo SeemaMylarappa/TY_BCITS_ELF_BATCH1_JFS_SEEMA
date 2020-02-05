@@ -58,6 +58,18 @@ public class CustomerServiceImp implements CustomerService {
 		return dao.payment(rrNumber, date, amount);
 	}
 
+	@Override
+	public ConsumerMaster getRRNumber(String rrNumber) {
+		
+		return dao.getRRNumber(rrNumber);
+	}
+
+	@Override
+	public double previousReading(String rrNumber) {
+		
+		return 0;
+	}
+
 	
 
 }

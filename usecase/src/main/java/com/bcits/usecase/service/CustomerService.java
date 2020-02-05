@@ -17,6 +17,7 @@ public interface CustomerService {
 	public CurrentBill getCurrentBill(String rrNumber);
 	public  List<MonthlyConsumption> getMonthlyConsumption(String rrNumber);
 	public List<BillHistoryBean> getBillHistory(String rrNumber);
-	
+	public ConsumerMaster getRRNumber(String rrNumber);
+    public double previousReading(String rrNumber); 
 
 }

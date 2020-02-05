@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-    <% EmployeeMaster employeeMaster = (EmployeeMaster) session.getAttribute("LoggedIn"); %>
+    <% EmployeeMaster employeeMaster = (EmployeeMaster) session.getAttribute("empLoggedIn"); %>
     <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
@@ -22,16 +22,62 @@
 </style>
 </head>
 <body>
-<br><br><br>
-<form action="./empPage">
-<div class="row">
+<br>
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+  <a href="./consumerlist">
+  <button class="btn btn-outline-success" type="button">Consumer Details</button>
+  </a>
+   <a href="./generateBill">
+  <button class="btn btn-outline-success" type="button">Generate Bill</button>
+  </a>
+   <a href="#">
+  <button class="btn btn-outline-success" type="button">Monthly Bill Generated</button>
+  </a>
+   <a href="./consumerlist">
+  <button class="btn btn-outline-success" type="button">Monthly Bill Collected</button>
+  </a>
+  <a href="./emplogout">
+  <button class="btn btn-outline-success" type="button">LogOut</button>
+  </a>  
+    
+  </form>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%-- <div class="row">
   <div class="col-4">
     <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Employee Details
-      </a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Number of Consumers</a>
-      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Monthly Bill Generated</a>
-      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Monthly Bill Collected</a>
+      <a href="./consumerlist">Consumer Details</a>
+      <a href="#list-messages">Generate Bill</a>
+      <a href="#list-profile" >Monthly Bill Generated</a>
+      <a href="#list-settings">Monthly Bill Collected</a>
     </div>
   </div>
   <div class="col-8">
@@ -48,6 +94,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</form>
+ --%></form>
 </body>
 </html>

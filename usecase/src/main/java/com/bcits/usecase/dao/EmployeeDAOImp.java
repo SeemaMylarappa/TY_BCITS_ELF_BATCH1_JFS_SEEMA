@@ -1,5 +1,7 @@
 package com.bcits.usecase.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -19,9 +21,10 @@ public class EmployeeDAOImp implements EmployeeDAO{
 
 
 	@Override
-	public EmployeeMaster employeeLogin(String empId, String password) {
+	public EmployeeMaster employeeLogin(int empId, String password) {
 		EntityManager manager=factoryBean.createEntityManager();
-		Query query = manager.createQuery(" from EmployeeMaster where empId= :empId  ");
+		String jpql=" from EmployeeMaster where empId= :empId ";
+		Query query = manager.createQuery(jpql);
 		query.setParameter("empId", empId);
 		EmployeeMaster employeeMaster=(EmployeeMaster) query.getSingleResult();
 		if (employeeMaster != null && employeeMaster.getPassword().equals(password)) {
@@ -29,6 +32,23 @@ public class EmployeeDAOImp implements EmployeeDAO{
 		}
 		manager.close();
 		return null;
+	}
+
+
+	@Override
+	public List<ConsumerMaster> consumerDetailsPage(String region) {
+		 System.out.println(region);
+			EntityManager manager=factoryBean.createEntityManager();
+		String jpql	=" from ConsumerMaster where region = :region ";
+			 Query query=manager.createQuery(jpql);
+			query.setParameter("region", region);
+		List<ConsumerMaster> consumerMaster=(List<ConsumerMaster>)query.getResultList();
+		System.out.println(consumerMaster);
+			if (consumerMaster != null) {
+				return consumerMaster;	
+			}
+			manager.close();
+			return null;
 	}
 
 }

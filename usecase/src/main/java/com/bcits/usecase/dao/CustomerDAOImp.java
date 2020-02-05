@@ -117,5 +117,34 @@ public class CustomerDAOImp implements CustomerDAO{
 		return false;
 	}
 
+	@Override
+	public ConsumerMaster getRRNumber(String rrNumber) {
+		EntityManager manager=factoryBean.createEntityManager();
+		ConsumerMaster master=manager.find(ConsumerMaster.class, rrNumber);
+		if (master != null) {
+			return master;
+		}
+		return null;
+	}
+
+	@Override
+	public double previousReading(String rrNumber) {
+		EntityManager manager= factoryBean.createEntityManager();
+		double previousReading;
+		try {
+			String jpql="select currentReading from MonthlyConsumption where rrNumber=:rrnum order by currentReading DESC";
+			Query query = manager.createQuery(jpql);
+			query.setMaxResults(1);
+			query.setParameter("rrnum", rrNumber);
+			previousReading=(double) query.getSingleResult();
+			}catch (Exception e) {
+				return 0;
+			}
+		if(previousReading != 0) {
+			return previousReading;
+		}
+		return 0;
+	}
+
 	
 }

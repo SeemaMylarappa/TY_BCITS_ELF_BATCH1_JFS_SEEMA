@@ -1,5 +1,7 @@
 package com.bcits.usecase.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 
@@ -12,5 +14,7 @@ import com.bcits.usecase.beans.EmployeeMaster;
 public interface EmployeeDAO {
 	
 	
-	public EmployeeMaster employeeLogin(String empId,String password);
+	public EmployeeMaster employeeLogin(int empId,String password);
+	public List<ConsumerMaster> consumerDetailsPage(String region);
+	
 }

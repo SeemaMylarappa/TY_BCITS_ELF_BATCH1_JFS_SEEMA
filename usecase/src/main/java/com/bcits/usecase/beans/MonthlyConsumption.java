@@ -23,5 +23,10 @@ public class MonthlyConsumption implements Serializable{
 	private double unitsConsumed;
 	@Column
 	private double amount;
+	@Column(name="previous_reading")
+	private double previousReading;
+	@Column(name="current_reading")
+	private double currentReading;
+	
 
 }
