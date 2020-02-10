@@ -70,6 +70,18 @@ public class CustomerServiceImp implements CustomerService {
 		return 0;
 	}
 
+	@Override
+	public List<MonthlyConsumption> getGeneratedBills(String region) {
+		
+		return dao.getGeneratedBills(region);
+	}
+
+	@Override
+	public boolean querySupport(String msg, String rrNumber, String region) {
+		
+		return dao.querySupport(msg, rrNumber, region);
+	}
+
 	
 
 }

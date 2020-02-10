@@ -29,7 +29,7 @@
 				<thead>
 					<tr>
 						<th><h3>
-								<a href="#"> Account Details &nbsp;&nbsp;&nbsp; </a>
+								<a href="./loginPage"> Account Details &nbsp;&nbsp;&nbsp; </a>
 							</h3></th>
 						<th><h3>
 								<a href="./currentBill">Current Bill &nbsp;&nbsp;&nbsp;</a>
@@ -44,13 +44,18 @@
 								<a href="./paymentPage"> Pay Online &nbsp;&nbsp;&nbsp;</a>
 							</h3></th>
 							<th><h3>
+								<a href="./queryDetails">Add Query &nbsp;&nbsp;&nbsp;</a>
+							</h3></th>
+							<th><h3>
 								<a href="./logout">LogOut &nbsp;&nbsp;&nbsp;</a>
 							</h3></th>
+							
 					</tr>
 				</thead>
 				</table>
-<% if(consumerMaster != null)  { %>				
+		
 <table class="table">
+<% if(consumerMaster != null)  { %>		
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -76,8 +81,9 @@
      
     </tr>
   </tbody>
+  <% } %>	
 </table>
-<% } %>			
+		
 	
 	</fieldset>
 	<script src="${js}/jquery-3.4.1.js"></script>

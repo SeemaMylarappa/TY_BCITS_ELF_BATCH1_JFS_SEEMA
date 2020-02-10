@@ -48,6 +48,9 @@
 								<a href="./paymentPage"> Pay Online &nbsp;&nbsp;&nbsp;</a>
 							</h3></th>
 							<th><h3>
+								<a href="./queryDetails">Add Query &nbsp;&nbsp;&nbsp;</a>
+							</h3></th>
+							<th><h3>
 								<a href="./logout">LogOut &nbsp;&nbsp;&nbsp;</a>
 							</h3></th>
 					</tr>

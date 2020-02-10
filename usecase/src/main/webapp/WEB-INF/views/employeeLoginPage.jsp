@@ -24,32 +24,46 @@
   
   <% } %>
     
-     <form action="./empPage" method="post" >
+     <form action="./empPage" method="post" class="container">
    <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 mt-5 mx-auto d-block bg-img">
-       <div>
+   
+   
+   <div class="form-group">
+    <label for="exampleInputEmail1"><h3>Employee ID</h3></label>
+    <input type="tel" class="form-control" id="empId" name="empId" aria-describedby="emailHelp">
+   
+   
+  <!--  <div>
+        <br>
+        <h3>Employee ID</h3>
+        <pre></pre>
+        <input type="tel" id="empId" name="empId" placeholder="Enter your ID Number" >
+
+      </div> -->
+       <!-- <div>
            <br>
            <h3>Employee ID</h3>
            <pre></pre>
            <input type="tel" name="empId" id="empId" placeholder="Enter your ID Number" >
 
-       </div>
+       </div> -->
       
 
-       <div>
-           <br>
-           <h3>Password</h3>
-           <pre></pre>
-           <input type="password" name="password" id="password" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-
-       </div>
+       <div class="form-group">
+    <label for="exampleInputPassword1"><h3>Password</h3></label>
+    <input type="password" class="form-control" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+  </div>
        
-         <div>
-           <br>
-           <h3>Region</h3>
-           <pre></pre>
-           <input type="text" name="region" id="region" placeholder="Enter your region" >
-
-       </div>
+         <div class="form-group col-md-4">
+         <br>
+              <h3>Region</h3>
+                <select id="inputState" class="form-control" name="region" required>
+                  <option selected disabled >Choose...</option>
+                  <option>Bangalore North</option>
+                  <option>Bangalore South</option>
+                </select>
+              </div>
        
        <div>
            <br>

@@ -1,8 +1,10 @@
+<%@page import="com.bcits.usecase.beans.ConsumerMaster"%>
 <%@page import="com.bcits.usecase.beans.EmployeeMaster"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
     <% EmployeeMaster employeeMaster = (EmployeeMaster) session.getAttribute("empLoggedIn"); %>
+    <% ConsumerMaster consumerMaster = (ConsumerMaster) request.getAttribute("consdetail"); %>
     <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
@@ -25,19 +27,17 @@
 <br>
 <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
+ 
   <a href="./consumerlist">
   <button class="btn btn-outline-success" type="button">Consumer Details</button>
   </a>
-   <a href="./generateBill">
-  <button class="btn btn-outline-success" type="button">Generate Bill</button>
+ <a href="./generateBillPage">  
+  <button class="btn btn-outline-success" type="button"> Generate Bill Page</button>
+    </a>
+    <a href="./seeGeneratedBills">
+  <button class="btn btn-outline-success" type="button">Bill Generated Details</button>
   </a>
-   <a href="#">
-  <button class="btn btn-outline-success" type="button">Monthly Bill Generated</button>
-  </a>
-   <a href="./consumerlist">
-  <button class="btn btn-outline-success" type="button">Monthly Bill Collected</button>
-  </a>
-  <a href="./emplogout">
+<a href="./emplogout">
   <button class="btn btn-outline-success" type="button">LogOut</button>
   </a>  
     

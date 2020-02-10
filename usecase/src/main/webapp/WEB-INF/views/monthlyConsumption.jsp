@@ -50,6 +50,9 @@
 					<th><h3>
 							<a href="./paymentPage"> Pay Online &nbsp;&nbsp;&nbsp;</a>
 						</h3></th>
+						<th><h3>
+								<a href="./queryDetails">Add Query &nbsp;&nbsp;&nbsp;</a>
+							</h3></th>
 					<th><h3>
 							<a href="./logout">LogOut &nbsp;&nbsp;&nbsp;</a>
 						</h3></th>
@@ -69,9 +72,10 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				
     <% for(MonthlyConsumption list : monthlyConsumption) {  %>
-		<% SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy"); %>			
+		<% SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy"); %>	
+		<tr>		
         <td><%= format.format(list.getMonthlyConsumptionprikey().getDate())%>&nbsp;&nbsp;&nbsp;</td>
          <td><%=list.getUnitsConsumed()%>&nbsp;&nbsp;&nbsp;</td>
            <td><%=list.getAmount()%>&nbsp;&nbsp;&nbsp;</td>

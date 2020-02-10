@@ -32,14 +32,11 @@
   <a href="./consumerlist">
   <button class="btn btn-outline-success" type="button">Consumer Details</button>
   </a>
-   <a href="./consumerlist">
+   <a href="./generateBillPage">
   <button class="btn btn-outline-success" type="button">Generate Bill</button>
   </a>
-   <a href="./consumerlist">
-  <button class="btn btn-outline-success" type="button">Monthly Bill Generated</button>
-  </a>
-   <a href="./consumerlist">
-  <button class="btn btn-outline-success" type="button">Monthly Bill Collected</button>
+  <a href="./seeGeneratedBills">
+  <button class="btn btn-outline-success" type="button">Bill Generated Details</button>
   </a>
   <a href="./emplogout">
   <button class="btn btn-outline-success" type="button">LogOut</button>
@@ -64,9 +61,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+ 
     
      <% for(ConsumerMaster list : consumerMaster) {%>
+        <tr>
        <td><%= list.getFirstName() + " " + list.getLastName() %></td>
         <td><%= list.getEmailId() %></td>
         <td><%= list.getMobileNo() %></td>
@@ -74,8 +72,9 @@
          <td><%= list.getTypeOfConsumer() %></td>
          <td><%= list.getRrNumber() %></td>
          <td><%= list.getAccountId() %></td>
+             </tr>
      <% } %>
-    </tr>
+
   </tbody>
 </table>
 	<% } %>		

@@ -34,19 +34,30 @@
 
         <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 mt-5 mx-auto d-block bg-img">
            
-            <h3 style="text-align: center; font-weight: 700; font-size: 60px;color:orange">DISCOM PRIVATE LIMITED</h3>
-            <div class="login">
+            <h2 style="text-align: center; font-weight: 700; font-size: 60px;color:gray;margin-top: 100px">DISCOM PRIVATE LIMITED</h2>
+            
+            <button type="button" class="btn btn-info btn-lg" style="margin-top: 200px;margin-left: 180px; height: 80px; width: 300px;"><a style="color: black;text-align: center;" href="./employeeLoginPage" ><strong>Employee Login</strong></a>   
+            </button>
+            <button type="button" class="btn btn-success btn-lg" style="margin-left: 230px; margin-top: 200px; height: 80px;width: 300px;"> <a style="color: black;text-align: center;" href="./consumerLoginPage"><strong>Consumer Login</strong></a>
+            </button>
+            
+            
+            
+            
+            
+            
+            <!-- <div class="login">
                 <button  type="button" class="btn btn-light btn-lg">
                     <i class="far fa-user"></i>
                     <a style="color: black;text-align: center;" href="./employeeLoginPage" >Employee Login</a>   
                        </button>
-                    </div>
-                    <div class="login1">
+                    </div> -->
+                   <!--  <div class="login1">
                         <button  type="button" class="btn btn-light btn-lg">
                             <i class="fas fa-user"></i>
                                <a style="color: black;text-align: center;" href="./consumerLoginPage">Consumer Login</a>
                                </button>
-                    </div>    
+                    </div>     -->
         </div>
 
     </form>

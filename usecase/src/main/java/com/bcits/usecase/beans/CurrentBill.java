@@ -17,14 +17,16 @@ public class CurrentBill {
 	@Column(name = "rr_number")
 	private String rrNumber;
 	@Column(name="initial_reading")
-	private int initialReading;
+	private Double initialReading;
 	@Column(name="final_reading")
-	private int finalReading;
+	private Double finalReading;
 	@Column(name="units_consumed")
-	private int unitsConsumed;
+	private Double unitsConsumed;
 	@Column
 	private double amount;
 	@Column(name="no_Of_Days")
 	private Date noOfDays;
+	@Column(name="type_of_consumer")
+	private String typeOfConsumer;
 
 }

@@ -45,11 +45,16 @@
 								<a href="./paymentPage"> Pay Online &nbsp;&nbsp;&nbsp;</a>
 							</h3></th>
 							<th><h3>
+								<a href="./queryDetails">Add Query &nbsp;&nbsp;&nbsp;</a>
+							</h3></th>
+							<th><h3>
 								<a href="./logout">LogOut &nbsp;&nbsp;&nbsp;</a>
 							</h3></th>
 					</tr>
 				</thead>
 				</table>
+
+</fieldset>
 
 <table class="table table-hover">
   <thead>
@@ -58,7 +63,7 @@
       <th scope="col">Initial Reading&nbsp;&nbsp;&nbsp;</th>
       <th scope="col">Final Reading&nbsp;&nbsp;&nbsp;</th>
       <th scope="col">Units consumed&nbsp;&nbsp;&nbsp;</th>
-       <th scope="col">No of days&nbsp;&nbsp;&nbsp;</th>
+       <th scope="col">Payment Date&nbsp;&nbsp;&nbsp;</th>
         <th scope="col">Amount&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
@@ -70,7 +75,7 @@
       <td><%= currentBill.getFinalReading() %>&nbsp;&nbsp;&nbsp;</td>
       <td><%= currentBill.getUnitsConsumed() %>&nbsp;&nbsp;&nbsp;</td>
       <td><%= currentBill.getNoOfDays() %>&nbsp;&nbsp;&nbsp;</td>
-      <td><%= currentBill.getAmount() %>&nbsp;&nbsp;&nbsp;</td>
+      <td><%= currentBill.getAmount() %>&nbsp;&nbsp;&nbsp;</td> 
      
     </tr>
  
@@ -79,7 +84,6 @@
 
 
 
-</fieldset>
 
 
 <script src="${js}/jquery-3.4.1.js"></script>

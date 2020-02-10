@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bcits.usecase.beans.ConsumerMaster;
+import com.bcits.usecase.beans.CurrentBill;
 import com.bcits.usecase.beans.EmployeeMaster;
+import com.bcits.usecase.beans.MonthlyConsumption;
+import com.bcits.usecase.beans.QueryInfoBean;
 import com.bcits.usecase.service.CustomerService;
 import com.bcits.usecase.service.EmployeeService;
 
@@ -26,7 +29,7 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService service;
-	
+
 	@Autowired
 	private CustomerService customerService;
 
@@ -42,19 +45,33 @@ public class EmployeeController {
 
 		return "employeeLoginPage";
 
-	}
+	}//end of  displayEmployeeLoginPage()
 
 	@GetMapping("/employeePage")
 	public String displayEmployeePage() {
 
 		return "employeePage";
-	}
-	
+	}//end of displayEmployeePage()
+
 	@GetMapping("/emplogout")
 	public String displaylogout() {
-		
+
 		return "employeeLoginPage";
-	}
+	}//end of displaylogout()
+	
+
+	@GetMapping("/generateBillPage")
+	public String displaygenerateBillPage(HttpSession session, ModelMap modelMap) {
+		EmployeeMaster master = (EmployeeMaster) session.getAttribute("empLoggedIn");
+		if (master != null) {
+			session.setAttribute("empLoggedIn", master);
+			return "generateBillPage";
+
+		} else {
+			modelMap.addAttribute("errmsg", "Invalid Credentials");
+			return "employeeLoginPage";
+		}
+	}//end of displaygenerateBillPage()
 
 	@PostMapping("/empPage")
 	public String employeeLogin(int empId, String password, HttpServletRequest request, ModelMap map) {
@@ -88,31 +105,77 @@ public class EmployeeController {
 			modelMap.addAttribute("errMsg", "Please Login first");
 			return "employeeLoginPage";
 		}
-	}//end of consumerList()
-	
-	@GetMapping("/generateBill")
-	  public String displayGenarateBillPage(HttpSession session,ModelMap map,String rrNumber) {
-		  System.out.println(rrNumber);
-		  EmployeeMaster employeemaster = (EmployeeMaster) session.getAttribute("empLoggedIn");
-		  System.out.println(employeemaster);
-		  if (employeemaster != null) {
-			  customerService.getMonthlyConsumption(rrNumber);
-			ConsumerMaster consumerMaster = customerService.getRRNumber(rrNumber);
-			double previousReading = customerService.previousReading(rrNumber);
-			System.out.println(previousReading);
-			if (consumerMaster != null) {
-				map.addAttribute("consdetail", consumerMaster);
-				map.addAttribute("previousReading", previousReading);
-				System.out.println(previousReading);
-			}
-				
+	}// end of consumerList()
+
+	@PostMapping("/generateBill")
+	public String genarateBill(HttpSession session, ModelMap map,CurrentBill currentBill) {
+		
+		EmployeeMaster master = (EmployeeMaster) session.getAttribute("empLoggedIn");
+		service.currentBillGeneration(currentBill,master.getRegion());
+       if(currentBill != null) {
+    	   map.addAttribute("msg", "Bill Generated");
+    	   return "generateBillPage";
+       }else {
+       map.addAttribute("errmsg", "Bill Not Generated");
+       
+		return "employeeLoginPage";
+       }
+	}//end of  genarateBill()
+
+	@GetMapping("/seeGeneratedBills")
+	public String displayGeneratedBills(HttpSession session,ModelMap modelMap) {
+		
+		EmployeeMaster master = (EmployeeMaster) session.getAttribute("empLoggedIn");
+		if (master != null) {
+			List<MonthlyConsumption> monthlyConsumptions = customerService.getGeneratedBills(master.getRegion());
+			if(!monthlyConsumptions.isEmpty()) {
+			modelMap.addAttribute("billList",monthlyConsumptions);
 			}else {
-				map.addAttribute("errmsg", "Invalid Credentials");
-				return "employeeLoginPage";
+				modelMap.addAttribute("errmsg", "Bill Not Generated");
+			}
+			return "generatedBills";
 		}
-		  
-		  return "generateBillPage";
-	  
-	  }
-	 //end of displayGenarateBillPage()
+		modelMap.addAttribute("errMsg", "Please Login first");
+		return "employeeLoginPage";
+		
+	}//end of displayGeneratedBills()
+	
+@GetMapping("/seeQuery")
+public String displayQuery(ModelMap modelMap,HttpSession session) {
+	EmployeeMaster master = (EmployeeMaster) session.getAttribute("empLoggedIn");
+	if (master != null) {
+		List<QueryInfoBean> querylist = service.queryList(master.getRegion());
+		if(querylist != null && !querylist.isEmpty()) {
+			modelMap.addAttribute("query", querylist);
+			
+		}else {
+			modelMap.addAttribute("errMsg", "No queries");
+		}
+		return "consumerQueries";
+	}else {
+		modelMap.addAttribute("errMsg", "Invalid Credentials");
+		return "employeeLoginPage";
+	}
+}//end of displayQuery()
+
+@PostMapping("/getResponse")
+public String response(HttpSession session,ModelMap modelMap,String rrNumber,String response,Date date) {
+	EmployeeMaster master = (EmployeeMaster) session.getAttribute("empLoggedIn");
+	if (master != null) {
+		List<QueryInfoBean> querylist = service.queryList(master.getRegion());
+		modelMap.addAttribute("query", querylist);
+		
+			if(service.queryResponse(rrNumber, response, date)) {
+				modelMap.addAttribute("msg", "Query Sent");
+			}
+			return "consumerQueries";
+		}else {
+			modelMap.addAttribute("errMsg", "Invalid Credentials");
+			return "employeeLoginPage";
+		}
 }
+
+
+
+
+}//end of class

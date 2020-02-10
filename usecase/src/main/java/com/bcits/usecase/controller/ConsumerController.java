@@ -42,39 +42,39 @@ public class ConsumerController {
 
 		return "homePage";
 	}// end of displayHomePage()
+	
+	
 
 	@GetMapping("/consumerLoginPage")
 	public String displayConsumerPage() {
 
 		return "consumerLoginPage";
 	}// end of displayConsumerPage()
+	
+	
 
 	@GetMapping("/consumerSignUpPage")
 	public String displaySignUp() {
 
 		return "consumerSignUpPage";
 	}// end of displaySignUp()
+	
+	
 
 	@GetMapping("/paymentPage")
 	public String displaypaymentPage() {
 
 		return "paymentPage";
 	}// end of displaypaymentPage()
-
-	/*
-	 * @GetMapping("/consumerdetail") public String displayConsumerDetail() {
-	 * 
-	 * return "consumerDetails"; }// end of displayConsumerDetail()
-	 */	
-
 	
-
+	
 
 	@GetMapping("/logout")
 	public String logOutPage( HttpSession session) {
 		session.invalidate();
-		return "homePage";
-	}
+		return "consumerLoginPage";
+	}//end of logout()
+	
 
 	@PostMapping("/signUPage")
 	public String addConsumer(ConsumerMaster consumerMaster, String conPwd, ModelMap map) {
@@ -87,6 +87,8 @@ public class ConsumerController {
 		}
 		return "consumerLoginPage";
 	}// end of addConsumer()
+	
+	
 
 	@PostMapping("/loginPage")
 	public String consumerLogin(String emailId, String password, HttpServletRequest request, ModelMap map) {
@@ -101,6 +103,8 @@ public class ConsumerController {
 			return "consumerLoginPage";
 		}
 	}// end of consumerLogin()
+	
+	
 
 	@GetMapping("/currentBill")
 	public String displayCurrentBill(HttpSession session, ModelMap modelMap) {
@@ -121,6 +125,8 @@ public class ConsumerController {
 			return "consumerDetails";
 		}
 	}// end of displayCurrentBill()
+	
+	
 
 	@GetMapping("/monthlyConsumption")
 	public String displayMonthlyConsumption(HttpSession session, ModelMap modelMap) {
@@ -141,6 +147,8 @@ public class ConsumerController {
 			return "consumerLoginPage";
 		}
 	}// end of displayMonthlyConsumption()
+	
+	
 	
 	@GetMapping(name="/billHistoryPage")
 	public String displayBillHistory(HttpSession session,ModelMap modelMap) {
@@ -188,8 +196,24 @@ public class ConsumerController {
 			return "consumerDetails";
 		}
 		
+	}//end of paymentPage()
+	
+	@GetMapping("/queryDetails")
+	public String queryPage(HttpSession session,ModelMap modelMap,String support) {
+		
+		ConsumerMaster consumerMaster = (ConsumerMaster) session.getAttribute("LoggedIn");
+		if (consumerMaster != null) {
+			System.out.println(support);
+			if(service.querySupport(support,consumerMaster.getRrNumber(),consumerMaster.getRegion())) {
+			modelMap.addAttribute("msg", "Query Sent");
+			
+		}
+		
+		return "queryPage";
+	} else {
+		modelMap.addAttribute("errMsg", "Please Login First");
+		return "consumerLoginPage";
 	}
-	
-	
-
 }
+
+}//end of class

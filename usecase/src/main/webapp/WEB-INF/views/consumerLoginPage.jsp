@@ -31,44 +31,32 @@
   <h5 style="color: green;font-size: 35px; font: bold;margin-right: 50px;align:center;"><%=msg %></h5>
   
   <% } %>
-  <form action="./loginPage" method="post">
-    <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 mt-5 mx-auto d-block bg-img">
-
-     
-      <div>
-        <br>
-        <h3>Enter your Email ID</h3>
-        <pre></pre>
-        <input type="text" id="emailID" name="emailId" placeholder="Enter email ID">
-
-      </div>
-
-
-      <div>
-        <br>
-        <h3>Password</h3>
-        <pre></pre>
-        <input type="password" name="password" id="password" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-
-      </div>
-      <div>
-        <br>
-        <button type="submit" class="btn btn-primary btn-lg">Login</button>
-
-
-      </div>
-      <br>
+  <form action="./loginPage" method="post" class="container">
+  <img alt="" src="./lightbulb.jpg">
+    <div  class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 mt-5 mx-auto d-block bg-img">
+    
+  <div class="form-group">
+    <label for="exampleInputEmail1"><h3>Email address</h3></label>
+    <input type="email" class="form-control" id="emailID" name="emailId" aria-describedby="emailHelp">
+   
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h3>Password</h3></label>
+    <input type="password" class="form-control" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Login</button>
+  <br>
+  <br>
       <span style="font-size: large;"><h5> New User?</h5> </span>
       <a style="color: cadetblue;font-size: large;font-weight: bolder;" href="./consumerSignUpPage"><h5>Register Here</h5> </a>
-
-     
-      <br>
+    <br>
       <div>
         <a class="btn btn-warning" href="./home" role="button">Home</a>
       </div>
-     
-    </div>
-  </form>
+</form>
+
   <script src="${js}/jquery-3.4.1.js"></script>
   <script src="${js}/bootstrap.min.js" ></script>
   <script src="${js}/consumerLogin.js" ></script>

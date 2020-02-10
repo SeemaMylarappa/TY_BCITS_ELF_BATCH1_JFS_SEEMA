@@ -18,6 +18,8 @@ public interface CustomerService {
 	public  List<MonthlyConsumption> getMonthlyConsumption(String rrNumber);
 	public List<BillHistoryBean> getBillHistory(String rrNumber);
 	public ConsumerMaster getRRNumber(String rrNumber);
-    public double previousReading(String rrNumber); 
+    public double previousReading(String rrNumber);
+    public List<MonthlyConsumption> getGeneratedBills(String region);
+    public boolean querySupport(String msg,String rrNumber,String region);
 
 }

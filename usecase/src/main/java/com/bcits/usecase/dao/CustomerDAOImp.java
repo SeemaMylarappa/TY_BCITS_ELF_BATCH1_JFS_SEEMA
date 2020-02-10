@@ -16,6 +16,8 @@ import com.bcits.usecase.beans.BillHistoryPK;
 import com.bcits.usecase.beans.ConsumerMaster;
 import com.bcits.usecase.beans.CurrentBill;
 import com.bcits.usecase.beans.MonthlyConsumption;
+import com.bcits.usecase.beans.QueryInfoBean;
+import com.bcits.usecase.beans.QueryInfoPK;
 
 
 @Repository
@@ -98,22 +100,32 @@ public class CustomerDAOImp implements CustomerDAO{
 
 	@Override
 	public boolean payment(String rrNumber, Date date, int amount) {
-		
+		try {
 		EntityManager manager = factoryBean.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
+		String jpql=" from MonthlyConsumption where monthlyConsumptionprikey.rrNumber = :rrNum order by currentReading DESC";
+		transaction.begin();
+		Query query = manager.createQuery(jpql);
+		query.setMaxResults(1);
+		query.setParameter("rrNum", rrNumber);
 		BillHistoryBean billHistoryBean = new BillHistoryBean();
 		BillHistoryPK billHistoryPK = new BillHistoryPK();
+		MonthlyConsumption monthlyConsumption = (MonthlyConsumption)query.getSingleResult();
 		billHistoryBean.setAmount(amount);
 		billHistoryPK.setRrNumber(rrNumber);
 		billHistoryBean.setStatus("Amount Paid");
 		billHistoryPK.setPaymentdate(date);
 		billHistoryBean.setBillhistorypk(billHistoryPK);
-		if (billHistoryPK != null) {
-			transaction.begin();
+		
+		
+			monthlyConsumption.setStatus("Paid");
 			manager.persist(billHistoryBean);
 			transaction.commit();
 			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
+	
 		return false;
 	}
 
@@ -132,7 +144,7 @@ public class CustomerDAOImp implements CustomerDAO{
 		EntityManager manager= factoryBean.createEntityManager();
 		double previousReading;
 		try {
-			String jpql="select currentReading from MonthlyConsumption where rrNumber=:rrnum order by currentReading DESC";
+			String jpql="select currentReading from MonthlyConsumption where rrNumber=:rrnum order by previousReading DESC";
 			Query query = manager.createQuery(jpql);
 			query.setMaxResults(1);
 			query.setParameter("rrnum", rrNumber);
@@ -146,5 +158,46 @@ public class CustomerDAOImp implements CustomerDAO{
 		return 0;
 	}
 
+	@Override
+	public List<MonthlyConsumption> getGeneratedBills(String region) {
+		EntityManager manager = factoryBean.createEntityManager();
+		String jpql=" from MonthlyConsumption where region=:reg ";
+		Query query = manager.createQuery(jpql);
+		query.setParameter("reg", region);
+		List<MonthlyConsumption> list = query.getResultList();
+		if (list != null) {
+			return list;
+		}
+		manager.close();
+		return null;
+	}
+
+	@Override
+	public boolean querySupport(String msg, String rrNumber, String region) {
+		    System.out.println(msg); 
+			EntityManager manager = factoryBean.createEntityManager();
+			EntityTransaction transaction = manager.getTransaction();
+			QueryInfoPK queryInfoPK = new QueryInfoPK();
+			QueryInfoBean queryInfoBean = new QueryInfoBean();
+			
+			try {
+				transaction.begin();
+				queryInfoPK.setRrNumber(rrNumber);
+				queryInfoBean.setRegion(region);
+				queryInfoPK.setDate(new Date());
+				queryInfoBean.setSupport(msg);
+				queryInfoBean.setResponse("Not Sent");
+				queryInfoBean.setQueryinfo(queryInfoPK);
+				manager.persist(queryInfoBean);
+				transaction.commit();
+				return true;
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+
+		}
+	}
+
 	
-}
+
